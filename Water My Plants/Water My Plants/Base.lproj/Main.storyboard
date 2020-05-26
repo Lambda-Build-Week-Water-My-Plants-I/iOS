@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1925" y="-690"/>
         </scene>
-        <!--Detail View View Controller-->
+        <!--Plant Nickname-->
         <scene sceneID="TWW-GU-HON">
             <objects>
                 <viewController id="Kwe-qk-iSG" customClass="DetailViewViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3I3-uf-Ukb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jiR-xg-I7v"/>
+                    <navigationItem key="navigationItem" title="Plant Nickname" id="jiR-xg-I7v"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp0-Cm-q2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,28 +113,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-nt-eF0">
-                                <rect key="frame" x="111" y="246" width="213" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ave-6c-XMc">
-                                <rect key="frame" x="142" y="44" width="131" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-u8-B3z">
+                                <rect key="frame" x="20" y="144" width="374" height="318"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ave-6c-XMc">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="Sign Up"/>
+                                            <segment title="Sign In"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-Fr-8Mv">
+                                        <rect key="frame" x="0.0" y="68.5" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bV-Bn-i0t">
+                                        <rect key="frame" x="0.0" y="139.5" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6y-Dn-Fd6">
+                                        <rect key="frame" x="0.0" y="211" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-nt-eF0">
+                                        <rect key="frame" x="0.0" y="282" width="374" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1tu-4f-OTp" firstAttribute="bottom" secondItem="fsu-u8-B3z" secondAttribute="bottom" constant="400" id="DAA-3N-E3E"/>
+                            <constraint firstItem="fsu-u8-B3z" firstAttribute="leading" secondItem="1tu-4f-OTp" secondAttribute="leading" constant="20" id="NAG-bw-vVO"/>
+                            <constraint firstItem="fsu-u8-B3z" firstAttribute="top" secondItem="1tu-4f-OTp" secondAttribute="top" constant="100" id="WBd-jZ-Kz0"/>
+                            <constraint firstItem="1tu-4f-OTp" firstAttribute="trailing" secondItem="fsu-u8-B3z" secondAttribute="trailing" constant="20" id="saM-IJ-g9P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1tu-4f-OTp"/>
                     </view>
                     <navigationItem key="navigationItem" id="tMa-e4-BWA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8i-Cq-pXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1925" y="688"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="687.72321428571422"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="qyT-LE-wN1">

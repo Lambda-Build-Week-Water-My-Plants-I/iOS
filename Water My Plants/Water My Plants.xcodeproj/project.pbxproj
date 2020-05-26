@@ -20,6 +20,7 @@
 		7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */; };
 		7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */; };
 		7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABD1247D73C3000B6D95 /* TableViewController.swift */; };
+		B481BACD247D83DE0072DB0A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewController.swift; sourceTree = "<group>"; };
 		7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		7F45ABD1247D73C3000B6D95 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		7F45ABC6247D705D000B6D95 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */,
 				7F45ABC7247D712E000B6D95 /* AboutUsViewController.swift */,
 				7F45ABCB247D7167000B6D95 /* LoginRegisterViewController.swift */,
 				7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */,
@@ -306,6 +309,7 @@
 				7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */,
 				7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */,
 				7F45AB94247D6974000B6D95 /* SceneDelegate.swift in Sources */,
+				B481BACD247D83DE0072DB0A /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

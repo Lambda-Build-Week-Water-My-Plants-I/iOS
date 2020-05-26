@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		7F45AB92247D6974000B6D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB91247D6974000B6D95 /* AppDelegate.swift */; };
 		7F45AB94247D6974000B6D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB93247D6974000B6D95 /* SceneDelegate.swift */; };
-		7F45AB96247D6974000B6D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB95247D6974000B6D95 /* ViewController.swift */; };
 		7F45AB99247D6974000B6D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F45AB97247D6974000B6D95 /* Main.storyboard */; };
 		7F45AB9C247D6974000B6D95 /* Water_My_Plants.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB9A247D6974000B6D95 /* Water_My_Plants.xcdatamodeld */; };
 		7F45AB9E247D6976000B6D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F45AB9D247D6976000B6D95 /* Assets.xcassets */; };
 		7F45ABA1247D6976000B6D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F45AB9F247D6976000B6D95 /* LaunchScreen.storyboard */; };
 		7F45ABAC247D6976000B6D95 /* Water_My_PlantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABAB247D6976000B6D95 /* Water_My_PlantsTests.swift */; };
 		7F45ABB7247D6976000B6D95 /* Water_My_PlantsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABB6247D6976000B6D95 /* Water_My_PlantsUITests.swift */; };
+		7F45ABC8247D712E000B6D95 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABC7247D712E000B6D95 /* AboutUsViewController.swift */; };
+		7F45ABCC247D7167000B6D95 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCB247D7167000B6D95 /* LoginRegisterViewController.swift */; };
+		7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */; };
+		7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */; };
+		7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABD1247D73C3000B6D95 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 		7F45AB8E247D6974000B6D95 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F45AB91247D6974000B6D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F45AB93247D6974000B6D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F45AB95247D6974000B6D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F45AB98247D6974000B6D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F45AB9B247D6974000B6D95 /* Water_My_Plants.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Water_My_Plants.xcdatamodel; sourceTree = "<group>"; };
 		7F45AB9D247D6976000B6D95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,11 @@
 		7F45ABB2247D6976000B6D95 /* Water My PlantsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Water My PlantsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F45ABB6247D6976000B6D95 /* Water_My_PlantsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_My_PlantsUITests.swift; sourceTree = "<group>"; };
 		7F45ABB8247D6976000B6D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F45ABC7247D712E000B6D95 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		7F45ABCB247D7167000B6D95 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
+		7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewController.swift; sourceTree = "<group>"; };
+		7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
+		7F45ABD1247D73C3000B6D95 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +109,11 @@
 		7F45AB90247D6974000B6D95 /* Water My Plants */ = {
 			isa = PBXGroup;
 			children = (
+				7F45ABC6247D705D000B6D95 /* Views */,
+				7F45ABC5247D7057000B6D95 /* Models */,
+				7F45ABC4247D7046000B6D95 /* Controllers */,
 				7F45AB91247D6974000B6D95 /* AppDelegate.swift */,
 				7F45AB93247D6974000B6D95 /* SceneDelegate.swift */,
-				7F45AB95247D6974000B6D95 /* ViewController.swift */,
 				7F45AB97247D6974000B6D95 /* Main.storyboard */,
 				7F45AB9D247D6976000B6D95 /* Assets.xcassets */,
 				7F45AB9F247D6976000B6D95 /* LaunchScreen.storyboard */,
@@ -129,6 +139,32 @@
 				7F45ABB8247D6976000B6D95 /* Info.plist */,
 			);
 			path = "Water My PlantsUITests";
+			sourceTree = "<group>";
+		};
+		7F45ABC4247D7046000B6D95 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7F45ABC5247D7057000B6D95 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F45ABC6247D705D000B6D95 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F45ABC7247D712E000B6D95 /* AboutUsViewController.swift */,
+				7F45ABCB247D7167000B6D95 /* LoginRegisterViewController.swift */,
+				7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */,
+				7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */,
+				7F45ABD1247D73C3000B6D95 /* TableViewController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F45AB96247D6974000B6D95 /* ViewController.swift in Sources */,
+				7F45ABC8247D712E000B6D95 /* AboutUsViewController.swift in Sources */,
 				7F45AB9C247D6974000B6D95 /* Water_My_Plants.xcdatamodeld in Sources */,
 				7F45AB92247D6974000B6D95 /* AppDelegate.swift in Sources */,
+				7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */,
+				7F45ABCC247D7167000B6D95 /* LoginRegisterViewController.swift in Sources */,
+				7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */,
+				7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */,
 				7F45AB94247D6974000B6D95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -75,7 +75,7 @@ final class UserController {
         }
     }
     
-    func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func signIn(with username: String, password: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         print("signInURL = \(signInURL.absoluteString)")
         
         var request = URLRequest(url: signInURL)
@@ -84,7 +84,7 @@ final class UserController {
 
         
         do {
-            let signInDictionary = ["username": user.username, "password": user.password]
+            let signInDictionary = ["username": username, "password": password]
             print(signInDictionary)
             let jsonData = try jsonEncoder.encode(signInDictionary)
             request.httpBody = jsonData

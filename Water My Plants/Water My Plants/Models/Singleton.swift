@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Singleton.swift
 //  Water My Plants
 //
 //  Created by Dahna on 5/27/20.
@@ -7,11 +7,5 @@
 //
 
 import Foundation
-
-struct User: Codable {
-    var username: String
-    var password: String
-    var phone_number: String = "222"
-}
 
 

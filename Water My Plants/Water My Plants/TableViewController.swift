@@ -25,6 +25,7 @@ class TableViewController: UITableViewController {
         return frc
     }()
     
+    let userController = UserController()
     let plantController = PlantController()
 
     override func viewDidLoad() {
@@ -33,13 +34,13 @@ class TableViewController: UITableViewController {
     }
     
     // MARK: - DAHNA'S CODE
-//
-//        override func viewDidAppear(_ animated: Bool) {
-//            super.viewDidAppear(animated)
-//            if userController.bearer == nil {
-//            performSegue(withIdentifier: "LoginModalSegue", sender: self)
-//            }
-//        }
+
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            if userController.bearer == nil {
+            performSegue(withIdentifier: "LoginModalSegue", sender: self)
+            }
+        }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,16 +85,19 @@ class TableViewController: UITableViewController {
     }
     
 
-    /*
+
     // TODO
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginModalSegue" {
+            if let loginVC = segue.destination as? LoginRegisterViewController {
+            loginVC.userController = userController
+            }
+        }
     }
-    */
+
 
 } // EOC
 

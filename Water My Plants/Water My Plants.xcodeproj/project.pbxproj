@@ -21,6 +21,11 @@
 		7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */; };
 		7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABD1247D73C3000B6D95 /* TableViewController.swift */; };
 		B481BACD247D83DE0072DB0A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */; };
+		B4ABC4F6247DB3B600E86C92 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABC4F5247DB3B600E86C92 /* PlantRepresentation.swift */; };
+		B4ABC4FA247DB3E700E86C92 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABC4F9247DB3E700E86C92 /* Plant+Convenience.swift */; };
+		B4ABC4FC247DB3F200E86C92 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABC4FB247DB3F200E86C92 /* CoreDataStack.swift */; };
+		B4ABC4FE247DB97E00E86C92 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABC4FD247DB97E00E86C92 /* PlantController.swift */; };
+		B4ABC502247DC21A00E86C92 /* MyPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ABC501247DC21A00E86C92 /* MyPlantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		7F45ABD1247D73C3000B6D95 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B4ABC4F5247DB3B600E86C92 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = SOURCE_ROOT; };
+		B4ABC4F9247DB3E700E86C92 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = SOURCE_ROOT; };
+		B4ABC4FB247DB3F200E86C92 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
+		B4ABC4FD247DB97E00E86C92 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = SOURCE_ROOT; };
+		B4ABC501247DC21A00E86C92 /* MyPlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +163,11 @@
 		7F45ABC5247D7057000B6D95 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B4ABC501247DC21A00E86C92 /* MyPlantCell.swift */,
+				B4ABC4F5247DB3B600E86C92 /* PlantRepresentation.swift */,
+				B4ABC4F9247DB3E700E86C92 /* Plant+Convenience.swift */,
+				B4ABC4FB247DB3F200E86C92 /* CoreDataStack.swift */,
+				B4ABC4FD247DB97E00E86C92 /* PlantController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,9 +322,14 @@
 				7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */,
 				7F45ABCC247D7167000B6D95 /* LoginRegisterViewController.swift in Sources */,
 				7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */,
+				B4ABC4FC247DB3F200E86C92 /* CoreDataStack.swift in Sources */,
+				B4ABC4FE247DB97E00E86C92 /* PlantController.swift in Sources */,
+				B4ABC4F6247DB3B600E86C92 /* PlantRepresentation.swift in Sources */,
 				7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */,
 				7F45AB94247D6974000B6D95 /* SceneDelegate.swift in Sources */,
+				B4ABC4FA247DB3E700E86C92 /* Plant+Convenience.swift in Sources */,
 				B481BACD247D83DE0072DB0A /* EditProfileViewController.swift in Sources */,
+				B4ABC502247DC21A00E86C92 /* MyPlantCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9XHQ9HRG34;
+        DevelopmentDay1
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,7 +523,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+
 				DEVELOPMENT_TEAM = 9XHQ9HRG34;
+        DevelopmentDay1
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (

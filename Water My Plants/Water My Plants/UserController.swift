@@ -18,7 +18,7 @@ final class UserController {
     }
     
     enum NetworkError: Error {
-        case failedSignUp, failedSignIn, noData, badData, noToken
+        case failedSignUp, failedSignIn, noData, badData, noToken, failedLogOut
     }
     
     // MARK: - Properties
@@ -39,7 +39,7 @@ final class UserController {
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        NSLog("signUpURL = \(signUpURL.absoluteString)")
+
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -72,7 +72,7 @@ final class UserController {
     }
     
     func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-        NSLog("signInURL = \(signInURL.absoluteString)") // This is a debug step, so we can see what the endpoint looks like to confirm it is what it needs to be
+  
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -119,47 +119,34 @@ final class UserController {
     }
     
     func logOut(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+
         var request = URLRequest(url: logOutURL)
-        request.httpMethod = HTTPMethod.post.rawValue
+        request.httpMethod = HTTPMethod.get.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let task = URLSession.shared.dataTask(with: request) { _, response, error in
                 if let error = error {
-                    NSLog("Sign in failed with error: \(error)⚠️⚠️⚠️")
-                    completion(.failure(.failedSignIn))
+                    NSLog("Log Out failed with error: \(error)⚠️⚠️⚠️")
+                    completion(.failure(.failedSignUp))
                     return
                 }
                 
-                if let response = response as? HTTPURLResponse,
-                    response.statusCode != 200 {
-                        NSLog("Sign in was unsuccessful, server status code = \(response.statusCode)⚠️⚠️⚠️")
-                        completion(.failure(.failedSignIn))
+                guard let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 else {
+                        NSLog("Log out was unsuccessful⚠️⚠️⚠️")
+                        completion(.failure(.failedSignUp))
                         return
-                }
-                
-                guard let data = data else {
-                    NSLog("No data received during sign in.⚠️⚠️⚠️")
-                    completion(.failure(.noData))
-                    return
-                }
-                
-                do {
-                    self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
-                    self.currentUserID = try self.jsonDecoder.decode(UserID.self, from: data)
-                } catch {
-                    NSLog("Error decoding bearer object: \(error)⚠️⚠️⚠️")
-                    completion(.failure(.noToken))
                 }
                 completion(.success(true))
             }
             task.resume()
         } catch {
-            NSLog("Error encoding user: \(error)⚠️⚠️⚠️")
-            completion(.failure(.failedSignIn))
+            NSLog("Error encoding user: \(error)")
+            completion(.failure(.failedSignUp))
         }
     }
 }

@@ -47,7 +47,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
             !password.isEmpty,
             let phoneNumber = phoneNumberTextField.text,
             !phoneNumber.isEmpty {
-            let user = User(username: username, password: password, phone_number: Int(phoneNumber) ?? 000)
+            let user = User(username: username, password: password, phone_number: Int16(phoneNumber) ?? 000)
             
             if loginType == .signUp {
                 

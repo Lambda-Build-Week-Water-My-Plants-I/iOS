@@ -184,6 +184,10 @@
                     <navigationItem key="navigationItem" title="My Profile" id="c4Y-6D-ryC">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pY2-Gf-vtC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="phoneNumberTextField" destination="v6G-ST-Agk" id="hiC-LI-BMH"/>
+                        <outlet property="userNameTextField" destination="B7L-Mr-qXR" id="Xqm-nj-1wL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aff-H4-HdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -301,6 +305,13 @@
                         <viewLayoutGuide key="safeArea" id="1tu-4f-OTp"/>
                     </view>
                     <navigationItem key="navigationItem" id="tMa-e4-BWA"/>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="ave-6c-XMc" id="pzk-xE-gvz"/>
+                        <outlet property="passwordTextField" destination="0bV-Bn-i0t" id="0wj-57-KBS"/>
+                        <outlet property="phoneNumberTextField" destination="p6y-Dn-Fd6" id="P77-xz-vrq"/>
+                        <outlet property="signInButton" destination="Iw4-nt-eF0" id="NVs-Y2-5Ny"/>
+                        <outlet property="usernameTextField" destination="Skh-Fr-8Mv" id="3oJ-Sd-2CD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8i-Cq-pXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,7 +394,7 @@
                     <navigationItem key="navigationItem" title="My Plants" id="btv-Gx-WvW">
                         <barButtonItem key="leftBarButtonItem" title="My Profile" id="KNJ-du-QQx">
                             <connections>
-                                <segue destination="xzc-6b-dhM" kind="show" id="arT-s3-E7K"/>
+                                <segue destination="xzc-6b-dhM" kind="show" identifier="MyProfileShowSegue" id="arT-s3-E7K"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kuW-9d-uMj">
@@ -393,7 +404,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yee-zL-Zlu" kind="presentation" modalPresentationStyle="fullScreen" id="LC2-Ic-kWJ"/>
+                        <segue destination="yee-zL-Zlu" kind="presentation" identifier="LoginModalSegue" modalPresentationStyle="fullScreen" id="LC2-Ic-kWJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvT-RS-HjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

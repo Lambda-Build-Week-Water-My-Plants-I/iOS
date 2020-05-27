@@ -9,6 +9,12 @@
 import UIKit
 
 class EditProfileViewController: UIViewController {
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

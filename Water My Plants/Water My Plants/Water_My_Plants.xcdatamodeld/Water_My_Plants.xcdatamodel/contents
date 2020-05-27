@@ -4,7 +4,7 @@
         <attribute name="h2o_frequency" attributeType="String"/>
         <attribute name="id" attributeType="Integer 16" usesScalarValueType="NO"/>
         <attribute name="nickname" attributeType="String"/>
-        <attribute name="species" optional="YES" attributeType="String"/>
+        <attribute name="species" attributeType="String"/>
         <attribute name="user_id" attributeType="Integer 16" usesScalarValueType="NO"/>
     </entity>
     <elements>

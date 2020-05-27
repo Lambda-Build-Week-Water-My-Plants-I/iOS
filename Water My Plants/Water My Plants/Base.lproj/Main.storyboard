@@ -160,7 +160,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3iF-7J-xYp">
                                 <rect key="frame" x="20" y="288" width="374" height="88"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7L-Mr-qXR">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B7L-Mr-qXR">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -184,6 +184,10 @@
                     <navigationItem key="navigationItem" title="My Profile" id="c4Y-6D-ryC">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="pY2-Gf-vtC"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="phoneNumberTextField" destination="v6G-ST-Agk" id="hiC-LI-BMH"/>
+                        <outlet property="userNameTextField" destination="B7L-Mr-qXR" id="Xqm-nj-1wL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aff-H4-HdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,11 +256,11 @@
             <objects>
                 <viewController id="yee-zL-Zlu" customClass="LoginRegisterViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LWS-Ok-yi9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-u8-B3z">
-                                <rect key="frame" x="20" y="144" width="374" height="318"/>
+                                <rect key="frame" x="20" y="100" width="374" height="308"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ave-6c-XMc">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
@@ -264,29 +268,35 @@
                                             <segment title="Sign Up"/>
                                             <segment title="Sign In"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="signInTypeChanged:" destination="yee-zL-Zlu" eventType="valueChanged" id="5al-Kr-Nmf"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-Fr-8Mv">
-                                        <rect key="frame" x="0.0" y="68.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="66" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bV-Bn-i0t">
-                                        <rect key="frame" x="0.0" y="139.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="134.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6y-Dn-Fd6">
-                                        <rect key="frame" x="0.0" y="211" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="203.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-nt-eF0">
-                                        <rect key="frame" x="0.0" y="282" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="272" width="374" height="36"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="buttonTapped:" destination="yee-zL-Zlu" eventType="touchUpInside" id="0Dl-zd-Df9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -301,6 +311,13 @@
                         <viewLayoutGuide key="safeArea" id="1tu-4f-OTp"/>
                     </view>
                     <navigationItem key="navigationItem" id="tMa-e4-BWA"/>
+                    <connections>
+                        <outlet property="loginTypeSegmentedControl" destination="ave-6c-XMc" id="pzk-xE-gvz"/>
+                        <outlet property="passwordTextField" destination="0bV-Bn-i0t" id="0wj-57-KBS"/>
+                        <outlet property="phoneNumberTextField" destination="p6y-Dn-Fd6" id="P77-xz-vrq"/>
+                        <outlet property="signInButton" destination="Iw4-nt-eF0" id="NVs-Y2-5Ny"/>
+                        <outlet property="usernameTextField" destination="Skh-Fr-8Mv" id="3oJ-Sd-2CD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8i-Cq-pXL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,7 +400,7 @@
                     <navigationItem key="navigationItem" title="My Plants" id="btv-Gx-WvW">
                         <barButtonItem key="leftBarButtonItem" title="My Profile" id="KNJ-du-QQx">
                             <connections>
-                                <segue destination="xzc-6b-dhM" kind="show" id="arT-s3-E7K"/>
+                                <segue destination="xzc-6b-dhM" kind="show" identifier="MyProfileShowSegue" id="arT-s3-E7K"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kuW-9d-uMj">
@@ -393,7 +410,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yee-zL-Zlu" kind="presentation" modalPresentationStyle="fullScreen" id="LC2-Ic-kWJ"/>
+                        <segue destination="yee-zL-Zlu" kind="presentation" identifier="LoginModalSegue" id="LC2-Ic-kWJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvT-RS-HjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

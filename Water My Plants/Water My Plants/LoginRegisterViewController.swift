@@ -22,6 +22,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var signInButton: UIButton!
     
+//    var userController = UserController()
     var userController: UserController?
     var loginType = LoginType.signUp
     
@@ -47,7 +48,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
             !password.isEmpty,
             let phoneNumber = phoneNumberTextField.text,
             !phoneNumber.isEmpty {
-            let user = User(username: username, password: password, phone_number: Int16(phoneNumber) ?? 000)
+            let user = User(username: username, password: password, phone_number: phoneNumber)
             
             if loginType == .signUp {
                 
@@ -68,11 +69,11 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
                             }
                         }
                     } catch {
-                        print("Error signing up: \(error)⚠️⚠️⚠️")
+                        NSLog("Error signing up: \(error)⚠️⚠️⚠️")
                     }
                 })
             } else {
-                
+                phoneNumberTextField.isHidden = true
                 userController?.signIn(with: user, completion: { result in
                     do {
                         let success = try result.get()
@@ -103,11 +104,15 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
             // sign up
             loginType = .signUp
             signInButton.setTitle("Sign Up", for: .normal)
+            phoneNumberTextField.isHidden = false
         } else {
             // sign in
             loginType = .signIn
             signInButton.setTitle("Sign In", for: .normal)
+            phoneNumberTextField.isHidden = true
         }
     }
 }
+
+
 

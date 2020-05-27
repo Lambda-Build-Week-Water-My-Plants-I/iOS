@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+//TODO: -MUST BE FIXED
 final class UserController {
     
     
@@ -31,7 +33,7 @@ final class UserController {
     private let baseURL = URL(string: "https://wmplants-db.herokuapp.com/")!
     private lazy var signUpURL = baseURL.appendingPathComponent("api/auth/register")
     private lazy var signInURL = baseURL.appendingPathComponent("api/auth/login")
-    private lazy var logOutURL = baseURL.appendingPathComponent("api/auth/logout")
+
 
     private lazy var jsonEncoder = JSONEncoder()
     private lazy var jsonDecoder = JSONDecoder()
@@ -39,28 +41,30 @@ final class UserController {
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-
+        print("signUpURL = \(signUpURL.absoluteString)")
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
             
-            let task = URLSession.shared.dataTask(with: request) { _, response, error in
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     NSLog("Sign up failed with error: \(error)⚠️⚠️⚠️")
                     completion(.failure(.failedSignUp))
                     return
                 }
-                
-                guard let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 else {
-                        NSLog("Sign up was unsuccessful⚠️⚠️⚠️")
-                        completion(.failure(.failedSignUp))
+                if let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                        NSLog("Sign in was unsuccessful, server status code = \(response.statusCode)⚠️⚠️⚠️")
+                        completion(.failure(.failedSignIn))
                         return
+                }
+                if let data = data {
+                    print(String(data: data, encoding: .utf8)!)
                 }
                 completion(.success(true))
             }
@@ -72,14 +76,17 @@ final class UserController {
     }
     
     func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-  
+        print("signInURL = \(signInURL.absoluteString)")
         
         var request = URLRequest(url: signInURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         
         do {
-            let jsonData = try jsonEncoder.encode(user)
+            let signInDictionary = ["username": user.username, "password": user.password]
+            print(signInDictionary)
+            let jsonData = try jsonEncoder.encode(signInDictionary)
             request.httpBody = jsonData
             
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -115,38 +122,6 @@ final class UserController {
         } catch {
             NSLog("Error encoding user: \(error)⚠️⚠️⚠️")
             completion(.failure(.failedSignIn))
-        }
-    }
-    
-    func logOut(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
-
-        var request = URLRequest(url: logOutURL)
-        request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            let jsonData = try jsonEncoder.encode(user)
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { _, response, error in
-                if let error = error {
-                    NSLog("Log Out failed with error: \(error)⚠️⚠️⚠️")
-                    completion(.failure(.failedSignUp))
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 else {
-                        NSLog("Log out was unsuccessful⚠️⚠️⚠️")
-                        completion(.failure(.failedSignUp))
-                        return
-                }
-                completion(.success(true))
-            }
-            task.resume()
-        } catch {
-            NSLog("Error encoding user: \(error)")
-            completion(.failure(.failedSignUp))
         }
     }
 }

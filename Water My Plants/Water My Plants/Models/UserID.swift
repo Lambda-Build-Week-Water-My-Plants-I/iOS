@@ -9,5 +9,5 @@
 import Foundation
 
 struct UserID: Codable {
-    var currentUser: Int16
+    var id: Int
 }

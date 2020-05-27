@@ -23,11 +23,16 @@ class Water_My_PlantsUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testBasicNavigation() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-
+        app/*@START_MENU_TOKEN@*/.staticTexts["Get Started"]/*[[".buttons[\"Get Started\"].staticTexts[\"Get Started\"]",".staticTexts[\"Get Started\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let myPlantsNavigationBar = app.navigationBars["My Plants"]
+        myPlantsNavigationBar.buttons["My Profile"].tap()
+        app.navigationBars["My Profile"].buttons["My Plants"].tap()
+        myPlantsNavigationBar.buttons["Add"].tap()
+        app.navigationBars["Add A Plant"].buttons["My Plants"].tap()
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

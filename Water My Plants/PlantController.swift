@@ -26,12 +26,9 @@ import CoreData
 class PlantController {
     
     private let baseURL = URL(string: "https://wmplants-db.herokuapp.com/")!
-    private lazy var plantDetailURL = baseURL.appendingPathComponent("api/plants/")
+    private lazy var plantDetailURL = baseURL.appendingPathComponent("/api/plants/")
     
     var plantRepresentation: [PlantRepresentation] = []
-    let decoder = JSONDecoder()
-    
-    //    var userPlants: [] = []
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
@@ -62,57 +59,35 @@ class PlantController {
         }.resume()
     }
     
-    // MARK: - SEND PLANTS "POST" --- TODO
+    // MARK: - SEND PLANTS "PUT" --- TODO
     
-    func sendPlantsToServer(plant: PlantRepresentation, completion: @escaping (_ plantID: Int?) -> Void
-        = {_ in }) {
-        let requestURL = baseURL.appendingPathComponent("api/plants")
+    func sendPlantsToServer(plant: Plant, completion: @escaping () -> Void
+        = { }) {
+        let requestURL = baseURL.appendingPathComponent("/api/plants")
         var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
-        guard let token = UserController.shared.bearer?.token else { return }
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue(token, forHTTPHeaderField: "Authorization")
-
+        request.httpMethod = "PUT"
+        
+        guard let plantRepresentation = plant.plantRepresentation else {
+            completion()
+            return
+        }
+        
         do {
             request.httpBody = try JSONEncoder().encode(plantRepresentation)
         } catch {
             NSLog("Error encoding \(plant): \(error)")
-            completion(nil)
+            completion()
             return
         }
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 NSLog("Error sending plant to server \(plant): \(error)")
-                completion(nil)
+                completion()
                 return
             }
-            //Retrieve id of plant from response from server
-            if let data = data {
-                
-                do {
-                    let newPlant = try self.decoder.decode(PlantRepresentation.self, from: data)
-                    completion(newPlant.id)
-                } catch {
-                    completion(nil)
-                }
-            }
+            completion()
         }.resume()
-    }
-    
-    func createPlant(nickname: String, species: String, h2o_frequency: String) {
-        guard let userID = UserController.shared.currentUserID?.id else { return }
-        var newPlant = PlantRepresentation(nickname: nickname, species: species, h2o_frequency: h2o_frequency, user_id: userID, id: 0)
-        self.sendPlantsToServer(plant: newPlant) { (id) in
-            guard let id = id else { return }
-            newPlant.id = id
-            let _ = Plant(plantRepresentation: newPlant)
-            do {
-                try CoreDataStack.shared.mainContext.save()
-            } catch {
-                NSLog("Error saving managed object context: \(error)")
-            }
-        }
-        
     }
     
     // MARK: - UPDATE PLANTS
@@ -152,6 +127,6 @@ class PlantController {
         }.resume()
     }
     
-    
-    
+
+
 } // EOC

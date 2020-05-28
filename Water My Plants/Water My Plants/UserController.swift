@@ -25,8 +25,6 @@ final class UserController {
     
     // MARK: - Properties
     
-    static let shared = UserController()
-    
     var bearer: Bearer?
     
     var currentUserID: UserID?
@@ -40,9 +38,6 @@ final class UserController {
     private lazy var jsonEncoder = JSONEncoder()
     private lazy var jsonDecoder = JSONDecoder()
     
-    private init () {
-        
-    }
     
     // create function for sign up
     func signUp(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {

@@ -11,7 +11,7 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
     
-    var user: User?
+    let user = UserController.shared.loggedInUser
     var wasEdited = false
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -20,15 +20,17 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = editButtonItem
+        updateViews()
     }
     
     private func updateViews() {
-        guard let user = user else { return }
         
-        userNameTextField.text = user.username
+        userNameTextField.text = UserController.shared.loggedInUser?.username
+        userNameTextField.isUserInteractionEnabled = isEditing
         
-        
-        phoneNumberTextField.text = user.phone_number
+        phoneNumberTextField.text = UserController.shared.loggedInUser?.phone_number
+        phoneNumberTextField.isUserInteractionEnabled = isEditing
         
     }
 }

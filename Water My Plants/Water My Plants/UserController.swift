@@ -12,6 +12,12 @@ import UIKit
 
 final class UserController {
     
+    struct APIUser: Codable {
+        var id: Int
+        var username: String
+        var phone_number: String
+    }
+    
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"
@@ -25,7 +31,7 @@ final class UserController {
     // MARK: - Properties
     
     static let shared = UserController()
-    var loggedInUser: User?
+    var loggedInUser: APIUser?
     var bearer: Bearer?
     var currentUserID: UserID?
     
@@ -36,12 +42,14 @@ final class UserController {
     private lazy var signUpURL = baseURL.appendingPathComponent("api/auth/register")
     private lazy var signInURL = baseURL.appendingPathComponent("api/auth/login")
     private lazy var editUserURL = baseURL.appendingPathComponent("api/users/")
+    private lazy var fetchUserURL = baseURL.appendingPathComponent("api/users/")
+    
     private lazy var jsonEncoder = JSONEncoder()
     private lazy var jsonDecoder = JSONDecoder()
     
     func signUp(with username: String, password: String, phoneNumber: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         
-        let user = createLoggedInUser(username: username, password: password, phoneNumber: phoneNumber)
+        let user = User(username: username, password: password, phone_number: phoneNumber)
         print("\(String(describing: loggedInUser))🧞‍♀️🧞‍♀️")
         print("signUpURL = \(signUpURL.absoluteString)")
         var request = URLRequest(url: signUpURL)
@@ -82,6 +90,7 @@ final class UserController {
             print(signInDictionary)
             let jsonData = try jsonEncoder.encode(signInDictionary)
             request.httpBody = jsonData
+            
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     NSLog("Sign in failed with error: \(error)⚠️⚠️⚠️")
@@ -102,6 +111,17 @@ final class UserController {
                 do {
                     self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
                     self.currentUserID = try self.jsonDecoder.decode(UserID.self, from: data)
+                    print("\(String(describing: self.currentUserID))")
+                    
+                    guard let userID = self.currentUserID else { return }
+                    self.fetchUserFromServer(with: userID) { result in
+                        switch result {
+                        case .success(let apiUser):
+                            self.loggedInUser = apiUser
+                        case .failure(let error):
+                            NSLog("Error: \(error)")
+                        }
+                    }
                 } catch {
                     NSLog("Error decoding bearer object: \(error)⚠️⚠️⚠️")
                     completion(.failure(.noToken))
@@ -113,6 +133,49 @@ final class UserController {
             NSLog("Error encoding user: \(error)⚠️⚠️⚠️")
             completion(.failure(.failedSignIn))
         }
+    }
+    
+    func fetchUserFromServer(with userID: UserID, completion: @escaping (Result<APIUser, NetworkError>) -> Void = { _ in }) {
+        
+        let requestURL = fetchUserURL.appendingPathComponent("\(userID.id)")
+        print("\(userID)")
+        print("fetchUserURL: \(requestURL)")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let token = self.bearer?.token else { return }
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                NSLog("Error fetching user: \(error)⚠️⚠️⚠️")
+                completion(.failure(.otherError))
+                return
+            }
+            
+//            if let response = response as? HTTPURLResponse,
+//                response.statusCode != 200 {
+//                NSLog("Response does not match 200, server status code = \(response.statusCode)⚠️⚠️⚠️")
+//                completion(.failure(.otherError))
+//                return
+//            }
+            guard let data = data else {
+                NSLog("No data returned from server (fetching user).⚠️⚠️⚠️")
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                
+                let apiUser = try self.jsonDecoder.decode(APIUser.self, from: data)
+                completion(.success(apiUser))
+            } catch {
+                NSLog("Error deocding APIUser from server: \(error)⚠️⚠️⚠️")
+                completion(.failure(.otherError))
+            }
+        }.resume()
     }
     
     func updateUser(with username: String, phoneNumber: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
@@ -167,11 +230,12 @@ final class UserController {
         }
     }
     
-    func createLoggedInUser(username: String, password: String, phoneNumber: String) -> User {
-        
-        let newUser = User(username: username, password: password, phone_number: phoneNumber)
-        
-        self.loggedInUser = newUser
-        return newUser
-    }
+    //    func createLoggedInUser(username: String, password: String, phoneNumber: String) -> User {
+    //
+    //        let newUser = User(username: username, password: password, phone_number: phoneNumber)
+    //
+    //        self.loggedInUser = newUser
+    //        return newUser
+    //    }
+    
 }

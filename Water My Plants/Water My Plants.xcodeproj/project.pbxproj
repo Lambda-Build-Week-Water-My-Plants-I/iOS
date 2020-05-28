@@ -24,7 +24,6 @@
 		995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC0247EDBD5009807A8 /* UserController.swift */; };
 		995B9FC3247EDC21009807A8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC2247EDC21009807A8 /* Bearer.swift */; };
 		995B9FC5247EE3EC009807A8 /* UserID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC4247EE3EC009807A8 /* UserID.swift */; };
-		995B9FC7247F2898009807A8 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC6247F2898009807A8 /* Singleton.swift */; };
 		B481BACD247D83DE0072DB0A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */; };
 		B4F284A3247EC32100E3B3A5 /* PlantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F284A2247EC32100E3B3A5 /* PlantController.swift */; };
 		B4F284A5247EC35200E3B3A5 /* PlantRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F284A4247EC35200E3B3A5 /* PlantRepresentation.swift */; };
@@ -74,7 +73,6 @@
 		995B9FC0247EDBD5009807A8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		995B9FC2247EDC21009807A8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		995B9FC4247EE3EC009807A8 /* UserID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserID.swift; sourceTree = "<group>"; };
-		995B9FC6247F2898009807A8 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		B481BACC247D83DE0072DB0A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B4F284A2247EC32100E3B3A5 /* PlantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantController.swift; sourceTree = SOURCE_ROOT; };
 		B4F284A4247EC35200E3B3A5 /* PlantRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRepresentation.swift; sourceTree = SOURCE_ROOT; };
@@ -182,7 +180,6 @@
 				B4F284A6247EC37F00E3B3A5 /* CoreDataStack.swift */,
 				B4F284A8247EC39C00E3B3A5 /* Plant+Convenience.swift */,
 				B4F284AA247EC3B100E3B3A5 /* PlantCell.swift */,
-				995B9FC6247F2898009807A8 /* Singleton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,7 +330,6 @@
 			files = (
 				7F45ABC8247D712E000B6D95 /* AboutUsViewController.swift in Sources */,
 				995B9FC5247EE3EC009807A8 /* UserID.swift in Sources */,
-				995B9FC7247F2898009807A8 /* Singleton.swift in Sources */,
 				B4F284A5247EC35200E3B3A5 /* PlantRepresentation.swift in Sources */,
 				995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */,
 				B4F284A9247EC39C00E3B3A5 /* Plant+Convenience.swift in Sources */,

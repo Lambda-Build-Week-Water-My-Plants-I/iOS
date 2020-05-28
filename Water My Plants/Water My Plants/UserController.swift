@@ -45,26 +45,23 @@ final class UserController {
         
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let task = URLSession.shared.dataTask(with: request) { _, response, error in
                 if let error = error {
                     NSLog("Sign up failed with error: \(error)⚠️⚠️⚠️")
                     completion(.failure(.failedSignUp))
                     return
                 }
                 if let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
-                        NSLog("Sign in was unsuccessful, server status code = \(response.statusCode)⚠️⚠️⚠️")
-                        completion(.failure(.failedSignIn))
-                        return
-                }
-                if let data = data {
-                    print(String(data: data, encoding: .utf8)!)
+                    response.statusCode != 201 {
+                    NSLog("Unexpected status code :\(response.statusCode)")
+                    completion(.failure(.failedSignIn))
+                    return
                 }
                 completion(.success(true))
             }

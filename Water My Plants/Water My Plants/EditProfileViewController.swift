@@ -14,8 +14,6 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

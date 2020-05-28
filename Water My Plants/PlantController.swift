@@ -39,7 +39,6 @@ class PlantController {
     //MARK: - TODO - come back to the api/user once i have user info
     
     func fetchPlantsFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        
         let requestURL = baseURL.appendingPathComponent("api/users").appendingPathComponent("plants")
         URLSession.shared.dataTask(with: requestURL) { data, _, error in
             if let error = error {
@@ -115,23 +114,45 @@ class PlantController {
         
     }
     
-    // MARK: - UPDATE PLANTS
     func updatePlants(with representations: [PlantRepresentation]) throws {
-        // HOW TO IMPLEMENT WITH INT16
+        let plantID = representations.compactMap { ($0.id) }
+        let representationbyID = Dictionary(uniqueKeysWithValues: zip(plantID, representations))
+        var plantToCreate = representationbyID
         
-        //        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
-        //        fetchRequest.predicate = NSPredicate()
-        //
-        //        let context = CoreDataStack.shared.container.newBackgroundContext()
-        //        var error: Error?
-        //
-        //        context.performAndWait {
-        //            do {
-        //                let existingPlants = try context.fetch(fetchRequest)
-        //            }
-        //        }
+        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", plantID)
         
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        var error: Error?
+        
+        context.performAndWait {
+            do {
+                let existingPlants = try context.fetch(fetchRequest)
+                for plant in existingPlants {
+                    guard let id = plant.id,
+                        let representation  = representationbyID[Int(id)] else { continue }
+                    self.update(plant: plant, with: representation)
+                    plantToCreate.removeValue(forKey: Int(id))
+                }
+        } catch let fetchError {
+            error = fetchError
+        }
+        for representation in plantToCreate.values {
+            Plant(plantRepresentation: representation, context: context)
+        }
     }
+    if let error = error { throw error }
+    try CoreDataStack.shared.save(context: context)
+}
+
+    
+    // MARK: - UPDATE PLANTS LOCALLY
+    private func update(plant: Plant, with representations: PlantRepresentation) {
+        plant.nickname = representations.nickname
+        plant.species = representations.species
+        plant.h2o_frequency = representations.h2o_frequency
+    }
+   
     
     // MARK: - DELETE PLANTS
     func deletePlantsFromServer(_ plant: Plant, completion: @escaping CompletionHandler = { _ in }) {

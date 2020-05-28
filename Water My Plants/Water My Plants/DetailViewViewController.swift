@@ -9,7 +9,12 @@
 import UIKit
 
 class DetailViewViewController: UIViewController {
-
+    // MARK: - OUTLETS
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantNameText: UITextField!
+    @IBOutlet weak var plantSpeciesText: UITextField!
+    @IBOutlet weak var plantFrequency: UITextField!
+       
     override func viewDidLoad() {
         super.viewDidLoad()
 

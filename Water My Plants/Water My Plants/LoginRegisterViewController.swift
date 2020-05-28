@@ -8,23 +8,110 @@
 
 import UIKit
 
-class LoginRegisterViewController: UIViewController {
+enum LoginType {
+    case signUp
+    case signIn
+}
 
+class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var phoneNumberTextField: UITextField!
+    @IBOutlet private weak var loginTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var signInButton: UIButton!
+
+    var loginType = LoginType.signUp
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        signInButton.layer.cornerRadius = 8.0
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        usernameTextField.becomeFirstResponder()
     }
-    */
+    
+    // MARK: - Action Handlers
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
 
+        if let username = usernameTextField.text,
+            !username.isEmpty,
+            let password = passwordTextField.text,
+            !password.isEmpty
+        {
+            
+            if loginType == .signUp {
+                guard let phoneNumber = phoneNumberTextField.text,
+                    !phoneNumber.isEmpty else { return }
+                let user = User(username: username, password: password, phone_number: phoneNumber)
+                
+                UserController.shared.signUp(with: user, completion: { result in
+                    
+                    do {
+                        let success = try result.get()
+                        if success {
+                            DispatchQueue.main.async {
+                                let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please log in.", preferredStyle: .alert)
+                                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                alertController.addAction(alertAction)
+                                self.present(alertController, animated: true) {
+                                    self.loginType = .signIn
+                                    self.loginTypeSegmentedControl.selectedSegmentIndex = 1
+                                    self.signInButton.setTitle("Sign In", for: .normal)
+                                }
+                            }
+                        }
+                    } catch {
+                        NSLog("Error signing up: \(error)⚠️⚠️⚠️")
+                    }
+                })
+            } else {
+                phoneNumberTextField.isHidden = true
+                UserController.shared.signIn(with: username, password: password, completion: { result in
+                    do {
+                        let success = try result.get()
+                        if success {
+                            DispatchQueue.main.async {
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                    } catch  {
+                     
+                        if let error = error as? UserController.NetworkError {
+                            switch error {
+                            case .failedSignIn:
+                                NSLog("Sign in failed⚠️⚠️⚠️")
+                            case .noData, .noToken:
+                                NSLog("No Data received⚠️⚠️⚠️")
+                            default:
+                                NSLog("Other error occurred⚠️⚠️⚠️")
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    }
+    @IBAction func signInTypeChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            // sign up
+            loginType = .signUp
+            signInButton.setTitle("Sign Up", for: .normal)
+            phoneNumberTextField.isHidden = false
+        } else {
+            // sign in
+            loginType = .signIn
+            signInButton.setTitle("Sign In", for: .normal)
+            phoneNumberTextField.isHidden = true
+        }
+    }
 }
+
+
+

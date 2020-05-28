@@ -8,7 +8,11 @@
 
 import UIKit
 
+
 class EditProfileViewController: UIViewController {
+    
+    var user: User?
+    var wasEdited = false
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -16,8 +20,15 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
+    
+    private func updateViews() {
+        guard let user = user else { return }
+        
+        userNameTextField.text = user.username
+        
+        
+        phoneNumberTextField.text = user.phone_number
+        
+    }
 }

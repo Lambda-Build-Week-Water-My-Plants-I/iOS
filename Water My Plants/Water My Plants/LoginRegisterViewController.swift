@@ -22,7 +22,6 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var signInButton: UIButton!
 
-    var userController: UserController?
     var loginType = LoginType.signUp
     
     override func viewDidLoad() {
@@ -52,7 +51,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
                     !phoneNumber.isEmpty else { return }
                 let user = User(username: username, password: password, phone_number: phoneNumber)
                 
-                userController?.signUp(with: user, completion: { result in
+                UserController.shared.signUp(with: user, completion: { result in
                     
                     do {
                         let success = try result.get()
@@ -74,7 +73,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
                 })
             } else {
                 phoneNumberTextField.isHidden = true
-                userController?.signIn(with: username, password: password, completion: { result in
+                UserController.shared.signIn(with: username, password: password, completion: { result in
                     do {
                         let success = try result.get()
                         if success {

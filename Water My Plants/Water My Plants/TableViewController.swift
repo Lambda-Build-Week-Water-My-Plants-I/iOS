@@ -25,7 +25,6 @@ class TableViewController: UITableViewController {
         return frc
     }()
     
-    let userController = UserController()
     let plantController = PlantController()
 
     override func viewDidLoad() {
@@ -37,7 +36,7 @@ class TableViewController: UITableViewController {
 
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            if userController.bearer == nil {
+            if UserController.shared.bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
             }
         }
@@ -91,9 +90,9 @@ class TableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LoginModalSegue" {
-            if let loginVC = segue.destination as? LoginRegisterViewController {
-            loginVC.userController = userController
+        if segue.identifier == "AddPlantSegue" {
+            if let addPlantVC = segue.destination as? AddPlantViewController {
+                addPlantVC.controller = self.plantController
             }
         }
     }

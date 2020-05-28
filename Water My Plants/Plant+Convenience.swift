@@ -22,8 +22,8 @@ extension Plant {
         return PlantRepresentation(nickname: nickname,
                                    species: species,
                                    h2o_frequency: h2o_frequency,
-                                   user_id: Int16(truncating: user_id),
-                                   id: Int16(truncating: id))
+                                   user_id: Int(truncating: user_id),
+                                   id: Int(truncating: id))
     }
     
     @discardableResult convenience init(nickname: String,
@@ -46,8 +46,8 @@ extension Plant {
         self.init(nickname: plantRepresentation.nickname,
                   species: plantRepresentation.species,
                   h2o_frequency: plantRepresentation.h2o_frequency,
-                  id: plantRepresentation.id,
-                  user_id: plantRepresentation.user_id,
+                  id: Int16(plantRepresentation.id),
+                  user_id: Int16(plantRepresentation.user_id),
                   context: context)
     }
 }

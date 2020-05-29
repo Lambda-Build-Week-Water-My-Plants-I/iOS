@@ -57,9 +57,11 @@ final class UserController {
         let user = User(username: username, password: password, phone_number: phoneNumber)
         print("\(String(describing: loggedInUser))🧞‍♀️🧞‍♀️")
         print("signUpURL = \(signUpURL.absoluteString)")
+        
         var request = URLRequest(url: signUpURL)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
         do {
             let jsonData = try jsonEncoder.encode(user)
             request.httpBody = jsonData
@@ -177,17 +179,18 @@ final class UserController {
         }.resume()
     }
     
-    func updateUser(with username: String, phoneNumber: String, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func updateUser(with username: String, phoneNumber: String, completion: @escaping (Result<Bool, NetworkError>) -> Void = { _ in }) {
         
         guard let userID = currentUserID else { return }
         
-        let requestURL = editUserURL.appendingPathComponent("\(userID)")
+        let requestURL = editUserURL.appendingPathComponent("\(userID.id)")
         print("editUserURL = \(requestURL.absoluteString)")
         
         var request = URLRequest(url: requestURL)
         request.httpMethod = HTTPMethod.put.rawValue
         
-        #warning("Check to see if we need another setValue for bearer token when this runs")
+        guard let token = self.bearer?.token else { return }
+        request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
@@ -196,29 +199,18 @@ final class UserController {
             
             let jsonData = try jsonEncoder.encode(editDictionary)
             request.httpBody = jsonData
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let task = URLSession.shared.dataTask(with: request) { _, response, error in
                 if let error = error {
                     NSLog("Updating user failed: \(error)⚠️⚠️⚠️")
                     completion(.failure(.otherError))
                     return
                 }
                 if let response = response as? HTTPURLResponse,
-                    response.statusCode != 200 {
+                    response.statusCode != 201 {
                     NSLog("Updating user failed, server status code = \(response.statusCode)⚠️⚠️⚠️")
                     completion(.failure(.otherError))
                     return
-                }
-                guard let data = data else {
-                    NSLog("No data received during update user ⚠️⚠️⚠️")
-                    completion(.failure(.noData))
-                    return
-                }
-                do {
-                    self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
-                    self.currentUserID = try self.jsonDecoder.decode(UserID.self, from: data)
-                } catch {
-                    NSLog("Error decoding bearer object: \(error)⚠️⚠️⚠️")
-                    completion(.failure(.noToken))
                 }
                 completion(.success(true))
             }
@@ -228,13 +220,4 @@ final class UserController {
             completion(.failure(.failedUpdate))
         }
     }
-    
-    //    func createLoggedInUser(username: String, password: String, phoneNumber: String) -> User {
-    //
-    //        let newUser = User(username: username, password: password, phone_number: phoneNumber)
-    //
-    //        self.loggedInUser = newUser
-    //        return newUser
-    //    }
-    
 }

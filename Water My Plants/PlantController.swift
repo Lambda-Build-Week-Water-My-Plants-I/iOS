@@ -25,11 +25,18 @@ import CoreData
 
 class PlantController {
     
+    struct ApiPlant : Codable {
+        let nickname: String
+        let species: String?
+        let h2o_frequency: String
+    }
+    
     private let baseURL = URL(string: "https://wmplants-db.herokuapp.com/")!
     private lazy var plantDetailURL = baseURL.appendingPathComponent("api/plants/")
     
     var plantRepresentation: [PlantRepresentation] = []
     let decoder = JSONDecoder()
+    
     
     //    var userPlants: [] = []
     
@@ -38,10 +45,16 @@ class PlantController {
     // MARK: FETCH PLANTS "GET"
     //MARK: - TODO - come back to the api/user once i have user info
     
+
     func fetchPlantsFromServer(completion: @escaping CompletionHandler = { _ in }) {
+        guard let userID = UserController.shared.currentUserID?.id else { return }
+        let requestURL = baseURL.appendingPathComponent("api/users/\(userID)/plants")
+        var request = URLRequest(url: requestURL)
+        guard let token = UserController.shared.bearer?.token else { return }
+        request.setValue(token, forHTTPHeaderField: "Authorization")
         
-        let requestURL = baseURL.appendingPathComponent("api/users").appendingPathComponent("plants")
-        URLSession.shared.dataTask(with: requestURL) { data, _, error in
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
                 NSLog("Error fetching tasks: \(error)")
                 completion(.failure(.otherError))
@@ -53,7 +66,7 @@ class PlantController {
                 return
             }
             do {
-                let plantRepresentations = Array(try JSONDecoder().decode([String : PlantRepresentation].self, from: data).values)
+                let plantRepresentations = try JSONDecoder().decode( [PlantRepresentation].self, from: data)
                 try self.updatePlants(with: plantRepresentations)
             } catch {
                 NSLog("Error decoding plants from server: \(error)")
@@ -63,9 +76,12 @@ class PlantController {
     }
     
     // MARK: - SEND PLANTS "POST" --- TODO
-    
-    func sendPlantsToServer(plant: PlantRepresentation, completion: @escaping (_ plantID: Int?) -> Void
+
+    func sendPlantToServer(plant: PlantRepresentation, completion: @escaping (_ plantID: Int?) -> Void
         = {_ in }) {
+        
+        let apiPlant = ApiPlant(nickname: plant.nickname, species: plant.species, h2o_frequency: plant.h2o_frequency)
+    
         let requestURL = baseURL.appendingPathComponent("api/plants")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
@@ -74,7 +90,9 @@ class PlantController {
         request.setValue(token, forHTTPHeaderField: "Authorization")
 
         do {
-            request.httpBody = try JSONEncoder().encode(plantRepresentation)
+            let body = try JSONEncoder().encode(apiPlant)
+            print ("Request body: \(body)")
+            request.httpBody = body
         } catch {
             NSLog("Error encoding \(plant): \(error)")
             completion(nil)
@@ -85,6 +103,12 @@ class PlantController {
                 NSLog("Error sending plant to server \(plant): \(error)")
                 completion(nil)
                 return
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 201 {
+                    NSLog("No 201 response from server")
+                    completion(nil)
+                    return }
             }
             //Retrieve id of plant from response from server
             if let data = data {
@@ -98,11 +122,11 @@ class PlantController {
             }
         }.resume()
     }
-    
+    // MARK: - CREATE PLANT FUNC
     func createPlant(nickname: String, species: String, h2o_frequency: String) {
         guard let userID = UserController.shared.currentUserID?.id else { return }
         var newPlant = PlantRepresentation(nickname: nickname, species: species, h2o_frequency: h2o_frequency, user_id: userID, id: 0)
-        self.sendPlantsToServer(plant: newPlant) { (id) in
+        self.sendPlantToServer(plant: newPlant) { (id) in
             guard let id = id else { return }
             newPlant.id = id
             let _ = Plant(plantRepresentation: newPlant)
@@ -112,34 +136,57 @@ class PlantController {
                 NSLog("Error saving managed object context: \(error)")
             }
         }
-        
+
     }
     
     // MARK: - UPDATE PLANTS
+    // updates users data with remote data (representation)
     func updatePlants(with representations: [PlantRepresentation]) throws {
-        // HOW TO IMPLEMENT WITH INT16
+        let plantID = representations.compactMap { ($0.id) }
+        let representationbyID = Dictionary(uniqueKeysWithValues: zip(plantID, representations))
+        var plantToCreate = representationbyID
         
-        //        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
-        //        fetchRequest.predicate = NSPredicate()
-        //
-        //        let context = CoreDataStack.shared.container.newBackgroundContext()
-        //        var error: Error?
-        //
-        //        context.performAndWait {
-        //            do {
-        //                let existingPlants = try context.fetch(fetchRequest)
-        //            }
-        //        }
+        let fetchRequest: NSFetchRequest<Plant> = Plant.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id IN %@", plantID)
         
+        let context = CoreDataStack.shared.container.newBackgroundContext()
+        var error: Error?
+        
+        context.performAndWait {
+            do {
+                let existingPlants = try context.fetch(fetchRequest)
+                for plant in existingPlants {
+                    guard let id = plant.id,
+                        let representation  = representationbyID[Int(id)] else { continue }
+                    self.update(plant: plant, with: representation)
+                    plantToCreate.removeValue(forKey: Int(id))
+                }
+            } catch let fetchError {
+                error = fetchError
+            }
+            for representation in plantToCreate.values {
+                Plant(plantRepresentation: representation, context: context)
+            }
+        }
+        if let error = error { throw error }
+        try CoreDataStack.shared.save(context: context)
+    }
+    
+    // MARK: - UPDATE PLANTS LOCALLY
+    private func update(plant: Plant, with representations: PlantRepresentation) {
+        plant.nickname = representations.nickname
+        plant.species = representations.species
+        plant.h2o_frequency = representations.h2o_frequency
     }
     
     // MARK: - DELETE PLANTS
     func deletePlantsFromServer(_ plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
-        //TODO
-        let identifier = String()
-        let requestURL = baseURL.appendingPathComponent(identifier).appendingPathComponent("api/users").appendingPathComponent("delete")
-        
-        var request = URLRequest(url: requestURL)
+        guard let plantID = plant.id else { return }
+            let requestURL = baseURL.appendingPathComponent("api/plants/\(plantID)")
+               var request = URLRequest(url: requestURL)
+               guard let token = UserController.shared.bearer?.token else { return }
+               request.setValue(token, forHTTPHeaderField: "Authorization")
+         
         request.httpMethod = HTTPMethod.delete.rawValue
         
         URLSession.shared.dataTask(with: request) { _, _, error in

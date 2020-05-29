@@ -112,7 +112,6 @@ class PlantController {
             }
             //Retrieve id of plant from response from server
             if let data = data {
-                #warning("Get with BackEnd")
                 do {
                     let newPlant = try self.decoder.decode(PlantRepresentation.self, from: data)
                     completion(newPlant.id)

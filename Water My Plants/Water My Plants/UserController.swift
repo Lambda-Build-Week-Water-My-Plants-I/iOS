@@ -218,7 +218,6 @@ final class UserController {
                     completion(.failure(.otherError))
                     return
                 }
-                #warning("Save local state of loggedInUser")
                 self.loggedInUser?.username = editDictionary["username"] ?? ""
                 self.loggedInUser?.phone_number = editDictionary["phone_number"] ?? ""
                 completion(.success(true))

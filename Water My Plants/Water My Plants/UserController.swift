@@ -154,13 +154,7 @@ final class UserController {
                 completion(.failure(.otherError))
                 return
             }
-            
-//            if let response = response as? HTTPURLResponse,
-//                response.statusCode != 200 {
-//                NSLog("Response does not match 200, server status code = \(response.statusCode)⚠️⚠️⚠️")
-//                completion(.failure(.otherError))
-//                return
-//            }
+
             guard let data = data else {
                 NSLog("No data returned from server (fetching user).⚠️⚠️⚠️")
                 completion(.failure(.noData))

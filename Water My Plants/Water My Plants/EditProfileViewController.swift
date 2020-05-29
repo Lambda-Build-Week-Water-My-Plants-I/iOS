@@ -24,6 +24,16 @@ class EditProfileViewController: UIViewController {
         updateViews()
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if editing { wasEdited = true }
+        
+        userNameTextField.isUserInteractionEnabled = editing
+        phoneNumberTextField.isUserInteractionEnabled = editing
+        
+    }
+    
     private func updateViews() {
         
         userNameTextField.text = UserController.shared.loggedInUser?.username

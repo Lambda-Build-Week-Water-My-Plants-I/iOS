@@ -45,8 +45,11 @@ class DetailViewViewController: UIViewController {
             plant.species = species
             let h2o_frequency = plantFrequency.text
             plant.h2o_frequency = h2o_frequency
-        
-//            plantController?.sendPlantToServer(plant: plant.plantRepresentation!)
+            
+
+            plantController?.updatePlantOnServer(plant: plant)
+            //            plantController?.sendPlantToServer(plant: plant.plantRepresentation!)
+            
             do {
                 try CoreDataStack.shared.save()
             } catch {

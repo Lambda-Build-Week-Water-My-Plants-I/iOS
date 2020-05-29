@@ -24,9 +24,7 @@ class MockDataLoader: NetworkDataLoader {
     }
     
     func loadData(using request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        
         self.request = request
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.005) {
             completion(self.data, self.response, self.error)
         }

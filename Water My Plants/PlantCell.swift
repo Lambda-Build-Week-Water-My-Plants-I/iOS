@@ -10,6 +10,7 @@ import UIKit
 class PlantCell: UITableViewCell {
     //MARK: - WORKING ON THE TOGGLE
     var plantController: PlantController?
+    var wasWatered: Bool = false
     // MARK: OUTLETS
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantSpecies: UILabel!
@@ -30,9 +31,10 @@ class PlantCell: UITableViewCell {
     // MARK: - ACTIONS -- TODO
     @IBAction func beenWateredToggle(_ sender: UIButton) {
         guard let plant = plant else { return }
-        //to do toggle
-        //plant.().toggle()
-        // todo image
+        
+        wasWatered.toggle()
+        
+        
         do {
                 try CoreDataStack.shared.mainContext.save()
             } catch {

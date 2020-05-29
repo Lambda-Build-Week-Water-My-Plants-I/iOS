@@ -21,11 +21,15 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        // Do any additional setup after loading the view.
+        
     }
     
     func updateViews() {
         plantImageView.image = UIImage(named: "purplePlants")
+        aboutUsTextView.textAlignment = .center
+        aboutUsTextView.text = "Visit our Home Page for more information: \n https://watermyownplants.netlify.app/index.html "
+        aboutUsTextView.textColor = .black
+        aboutUsTextView.isScrollEnabled = false
     }
 
 }

@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-
+protocol UserStateDelegate {
+    func userLoggedIn()
+}
 
 final class UserController {
     
@@ -31,12 +33,8 @@ final class UserController {
     // MARK: - Properties
     
     static let shared = UserController()
-    var loggedInUser: APIUser? {
-        didSet {
-            guard let currentID = currentUserID else { return }
-            fetchUserFromServer(with: currentID)
-        }
-    }
+    var loggedInUser: APIUser?
+    var deleagte: UserStateDelegate?
     var bearer: Bearer?
     var currentUserID: UserID?
     
@@ -133,6 +131,7 @@ final class UserController {
                     NSLog("Error decoding bearer object: \(error)⚠️⚠️⚠️")
                     completion(.failure(.noToken))
                 }
+                self.deleagte?.userLoggedIn()
                 completion(.success(true))
             }
             task.resume()
@@ -212,6 +211,9 @@ final class UserController {
                     completion(.failure(.otherError))
                     return
                 }
+                #warning("Save local state of loggedInUser")
+                self.loggedInUser?.username = editDictionary["username"] ?? ""
+                self.loggedInUser?.phone_number = editDictionary["phone_number"] ?? ""
                 completion(.success(true))
             }
             task.resume()

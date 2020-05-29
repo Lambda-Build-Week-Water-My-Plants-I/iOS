@@ -28,10 +28,10 @@ class TableViewController: UITableViewController {
     let plantController = PlantController()
 
 
-       override func viewDidLoad() {
-           super.viewDidLoad()
-   
-       }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UserController.shared.deleagte = self
+    }
    
     // MARK: - DAHNA'S CODE
     
@@ -157,5 +157,11 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
         @unknown default:
             break
         }
+    }
+}
+
+extension TableViewController: UserStateDelegate {
+    func userLoggedIn() {
+        plantController.fetchPlantsFromServer()
     }
 }

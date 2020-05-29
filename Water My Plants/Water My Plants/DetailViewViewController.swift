@@ -9,18 +9,18 @@
 import UIKit
 
 class DetailViewViewController: UIViewController {
-    
+
     // MARK: - OUTLETS
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var plantNameText: UITextField!
     @IBOutlet weak var plantSpeciesText: UITextField!
     @IBOutlet weak var plantFrequency: UITextField!
-    
+
     // MARK: - PROPERTIES
     var plantController: PlantController?
     var wasEdited = false
     var plant: Plant?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -29,7 +29,7 @@ class DetailViewViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+    
         if wasEdited {
             guard let plantName = plantNameText.text,
                 !plantName.isEmpty,
@@ -38,13 +38,13 @@ class DetailViewViewController: UIViewController {
                 let plantFreq = plantFrequency.text,
                 !plantFreq.isEmpty,
                 let plant = plant else { return }
-            
+        
             let nickname = plantNameText.text
             plant.nickname = nickname
             let species = plantSpeciesText.text
             plant.species = species
-            let h2o_frequency = plantFrequency.text
-            plant.h2o_frequency = h2o_frequency
+            let freq = plantFrequency.text
+            plant.h2o_frequency = freq
             
 
             plantController?.updatePlantOnServer(plant: plant)

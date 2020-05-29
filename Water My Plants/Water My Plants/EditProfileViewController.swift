@@ -24,6 +24,21 @@ class EditProfileViewController: UIViewController {
         updateViews()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if wasEdited {
+            guard let username = userNameTextField.text,
+                !username.isEmpty,
+                let phoneNumber = phoneNumberTextField.text,
+                !phoneNumber.isEmpty else { return }
+           
+            UserController.shared.updateUser(with: username, phoneNumber: phoneNumber)
+            UserController.shared.loggedInUser?.username = username
+            print("\(String(describing: UserController.shared.loggedInUser))")
+        }
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
@@ -41,6 +56,5 @@ class EditProfileViewController: UIViewController {
         
         phoneNumberTextField.text = UserController.shared.loggedInUser?.phone_number
         phoneNumberTextField.isUserInteractionEnabled = isEditing
-        
     }
 }

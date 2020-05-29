@@ -26,19 +26,20 @@ class TableViewController: UITableViewController {
     }()
     
     let plantController = PlantController()
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserController.shared.deleagte = self
     }
-    
+   
     // MARK: - DAHNA'S CODE
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if UserController.shared.bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
-        } else {
-            plantController.fetchPlantsFromServer()
+     
         }
     }
     // MARK: - Table view data source
@@ -156,5 +157,11 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
         @unknown default:
             break
         }
+    }
+}
+
+extension TableViewController: UserStateDelegate {
+    func userLoggedIn() {
+        plantController.fetchPlantsFromServer()
     }
 }

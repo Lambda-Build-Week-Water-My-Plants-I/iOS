@@ -21,6 +21,7 @@
 		7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */; };
 		7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABD1247D73C3000B6D95 /* TableViewController.swift */; };
 		7F5E5AEE2481768A00E47BA4 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */; };
+		7F5E5AF02481771E00E47BA4 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AEF2481771E00E47BA4 /* MockDataLoader.swift */; };
 		995B9FB0247ECD34009807A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FAF247ECD34009807A8 /* User.swift */; };
 		995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC0247EDBD5009807A8 /* UserController.swift */; };
 		995B9FC3247EDC21009807A8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC2247EDC21009807A8 /* Bearer.swift */; };
@@ -72,6 +73,7 @@
 		7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		7F45ABD1247D73C3000B6D95 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		7F5E5AEF2481771E00E47BA4 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		995B9FAF247ECD34009807A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		995B9FC0247EDBD5009807A8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		995B9FC2247EDC21009807A8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				7F45ABB6247D6976000B6D95 /* Water_My_PlantsUITests.swift */,
 				7F45ABB8247D6976000B6D95 /* Info.plist */,
+				7F5E5AEF2481771E00E47BA4 /* MockDataLoader.swift */,
 			);
 			path = "Water My PlantsUITests";
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F5E5AF02481771E00E47BA4 /* MockDataLoader.swift in Sources */,
 				7F45ABB7247D6976000B6D95 /* Water_My_PlantsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,8 +36,6 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        usernameTextField.becomeFirstResponder()
     }
     
     // MARK: - Action Handlers

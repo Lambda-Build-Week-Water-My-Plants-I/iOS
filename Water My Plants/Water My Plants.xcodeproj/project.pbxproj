@@ -20,6 +20,7 @@
 		7F45ABCE247D7176000B6D95 /* DetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */; };
 		7F45ABD0247D72C1000B6D95 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */; };
 		7F45ABD2247D73C3000B6D95 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45ABD1247D73C3000B6D95 /* TableViewController.swift */; };
+		7F5E5AEE2481768A00E47BA4 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */; };
 		995B9FB0247ECD34009807A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FAF247ECD34009807A8 /* User.swift */; };
 		995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC0247EDBD5009807A8 /* UserController.swift */; };
 		995B9FC3247EDC21009807A8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC2247EDC21009807A8 /* Bearer.swift */; };
@@ -70,6 +71,7 @@
 		7F45ABCD247D7176000B6D95 /* DetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewController.swift; sourceTree = "<group>"; };
 		7F45ABCF247D72C1000B6D95 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		7F45ABD1247D73C3000B6D95 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
 		995B9FAF247ECD34009807A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		995B9FC0247EDBD5009807A8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		995B9FC2247EDC21009807A8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				7F45ABC6247D705D000B6D95 /* Views */,
 				7F45ABC5247D7057000B6D95 /* Models */,
+				7F5E5AEC2481765800E47BA4 /* Model Controllers */,
 				7F45ABC4247D7046000B6D95 /* Controllers */,
 				7F45AB91247D6974000B6D95 /* AppDelegate.swift */,
 				7F45AB93247D6974000B6D95 /* SceneDelegate.swift */,
@@ -198,6 +201,14 @@
 				7F45ABD1247D73C3000B6D95 /* TableViewController.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		7F5E5AEC2481765800E47BA4 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */,
+			);
+			name = "Model Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				995B9FC7247F2898009807A8 /* Singleton.swift in Sources */,
 				B4F284A5247EC35200E3B3A5 /* PlantRepresentation.swift in Sources */,
 				995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */,
+				7F5E5AEE2481768A00E47BA4 /* NetworkDataLoader.swift in Sources */,
 				B4F284A9247EC39C00E3B3A5 /* Plant+Convenience.swift in Sources */,
 				7F45AB9C247D6974000B6D95 /* Water_My_Plants.xcdatamodeld in Sources */,
 				B4F284A7247EC37F00E3B3A5 /* CoreDataStack.swift in Sources */,

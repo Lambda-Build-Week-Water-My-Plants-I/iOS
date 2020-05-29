@@ -45,7 +45,7 @@ class PlantController {
     // MARK: FETCH PLANTS "GET"
     //MARK: - TODO - come back to the api/user once i have user info
     
-
+    
     func fetchPlantsFromServer(completion: @escaping CompletionHandler = { _ in }) {
         guard let userID = UserController.shared.currentUserID?.id else { return }
         let requestURL = baseURL.appendingPathComponent("api/users/\(userID)/plants")
@@ -76,19 +76,19 @@ class PlantController {
     }
     
     // MARK: - SEND PLANTS "POST" --- TODO
-
+    
     func sendPlantToServer(plant: PlantRepresentation, completion: @escaping (_ plantID: Int?) -> Void
         = {_ in }) {
         
         let apiPlant = ApiPlant(nickname: plant.nickname, species: plant.species, h2o_frequency: plant.h2o_frequency)
-    
+        
         let requestURL = baseURL.appendingPathComponent("api/plants")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         guard let token = UserController.shared.bearer?.token else { return }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token, forHTTPHeaderField: "Authorization")
-
+        
         do {
             let body = try JSONEncoder().encode(apiPlant)
             print ("Request body: \(body)")
@@ -136,7 +136,7 @@ class PlantController {
                 NSLog("Error saving managed object context: \(error)")
             }
         }
-
+        
     }
     
     // MARK: - UPDATE PLANTS
@@ -173,20 +173,65 @@ class PlantController {
     }
     
     // MARK: - UPDATE PLANTS LOCALLY
-    private func update(plant: Plant, with representations: PlantRepresentation) {
+    
+    func updatePlantOnServer(plant: Plant, completion: @escaping (_ plantID: Int?) -> Void
+        = {_ in }) {
+
+        
+        let apiPlant = ApiPlant(nickname: plant.nickname ?? "" , species: plant.species, h2o_frequency: plant.h2o_frequency ?? "")
+        
+        guard let plantID = plant.id else { return }
+        
+        let requestURL = baseURL.appendingPathComponent("api/plants").appendingPathComponent("\(plantID)")
+        print("\(requestURL)")
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        guard let token = UserController.shared.bearer?.token else { return }
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let body = try JSONEncoder().encode(apiPlant)
+            print ("Request body: \(body)")
+            request.httpBody = body
+        } catch {
+            NSLog("Error encoding \(plant): \(error)")
+            completion(nil)
+            return
+        }
+        URLSession.shared.dataTask(with: request) { _, response, error in
+            if let error = error {
+                NSLog("Error sending plant to server \(plant): \(error)")
+                completion(nil)
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode != 201 {
+                    NSLog("No 201 response from server")
+                    completion(nil)
+                    return }
+            }
+        }.resume()
+        
+    }
+    
+    func update(plant: Plant, with representations: PlantRepresentation, completion: @escaping (_ plantID: Int?) -> Void
+        = {_ in }) {
+        
         plant.nickname = representations.nickname
         plant.species = representations.species
         plant.h2o_frequency = representations.h2o_frequency
+        
     }
     
     // MARK: - DELETE PLANTS
     func deletePlantsFromServer(_ plant: Plant, completion: @escaping CompletionHandler = { _ in }) {
         guard let plantID = plant.id else { return }
-            let requestURL = baseURL.appendingPathComponent("api/plants/\(plantID)")
-               var request = URLRequest(url: requestURL)
-               guard let token = UserController.shared.bearer?.token else { return }
-               request.setValue(token, forHTTPHeaderField: "Authorization")
-         
+        let requestURL = baseURL.appendingPathComponent("api/plants/\(plantID)")
+        var request = URLRequest(url: requestURL)
+        guard let token = UserController.shared.bearer?.token else { return }
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
         request.httpMethod = HTTPMethod.delete.rawValue
         
         URLSession.shared.dataTask(with: request) { _, _, error in

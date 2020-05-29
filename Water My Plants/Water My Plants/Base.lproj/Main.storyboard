@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -74,6 +74,12 @@
                         <viewLayoutGuide key="safeArea" id="cQr-aw-h4q"/>
                     </view>
                     <navigationItem key="navigationItem" id="fPX-dZ-SD6"/>
+                    <connections>
+                        <outlet property="aboutUsTextView" destination="Lvd-Vn-CFu" id="AuT-1L-g4b"/>
+                        <outlet property="getStartedButton" destination="zSa-RM-Oft" id="xh8-Od-0Vs"/>
+                        <outlet property="plantImageView" destination="3Hk-fQ-M4X" id="LKN-gv-bLr"/>
+                        <outlet property="plantParentLabel" destination="IQ0-3u-RWI" id="p2k-3x-Il6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZo-KN-FkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -427,7 +433,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yee-zL-Zlu" kind="presentation" identifier="LoginModalSegue" id="LC2-Ic-kWJ"/>
+                        <segue destination="yee-zL-Zlu" kind="showDetail" identifier="LoginModalSegue" id="LC2-Ic-kWJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvT-RS-HjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

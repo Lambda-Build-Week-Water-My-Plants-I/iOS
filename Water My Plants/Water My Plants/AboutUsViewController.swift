@@ -9,12 +9,23 @@
 import UIKit
 
 class AboutUsViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantParentLabel: UILabel!
+    @IBOutlet weak var aboutUsTextView: UITextView!
+    @IBOutlet weak var getStartedButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        updateViews()
         // Do any additional setup after loading the view.
     }
     
+    func updateViews() {
+        plantImageView.image = UIImage(named: "purplePlants")
+    }
 
 }

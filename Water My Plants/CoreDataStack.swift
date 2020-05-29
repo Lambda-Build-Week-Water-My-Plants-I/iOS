@@ -19,6 +19,8 @@ class CoreDataStack {
                 fatalError("Failed to load persistent stores: \(error)")
             }
         }
+        #warning("I think this is what makes it skip and act weird but then again it also then changes the way the edits look??")
+        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
     var mainContext: NSManagedObjectContext {

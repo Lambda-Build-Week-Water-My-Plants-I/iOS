@@ -26,7 +26,7 @@ class PlantCell: UITableViewCell {
         plantName.text = plant.nickname
         plantSpecies.text = plant.species
         // MARK: - HELP
-        waterButton.setImage((plant.h2o_frequency != nil) ? UIImage(contentsOfFile: "empty-droplet") : UIImage(contentsOfFile: "filled-droplet"), for: .normal)
+        waterButton.setBackgroundImage(UIImage(named: "empty-droplet"), for: .normal)
     }
     // MARK: - ACTIONS -- TODO
     @IBAction func beenWateredToggle(_ sender: UIButton) {
@@ -34,12 +34,10 @@ class PlantCell: UITableViewCell {
         
         wasWatered.toggle()
         
-        
-        do {
-                try CoreDataStack.shared.mainContext.save()
-            } catch {
-                CoreDataStack.shared.mainContext.reset()
-                NSLog("Error saving context (changing task complete boolean): \(error)")
-            }
+        if wasWatered == true {
+            waterButton.setBackgroundImage(UIImage(named: "filled-droplet"), for: .normal)
+        } else {
+            waterButton.setBackgroundImage(UIImage(named: "empty-droplet"), for: .normal)
         }
     }
+}

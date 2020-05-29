@@ -24,32 +24,39 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hk-fQ-M4X">
-                                <rect key="frame" x="0.0" y="88" width="414" height="638"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="593"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-LR-Yci">
-                                <rect key="frame" x="20" y="746" width="374" height="130"/>
+                                <rect key="frame" x="20" y="701" width="374" height="175"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water My Plants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQ0-3u-RWI">
                                         <rect key="frame" x="89.5" y="0.0" width="195" height="40"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.071673126710000007" green="0.25894273480000002" blue="0.1024318677" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="752" editable="NO" text="You can visit our homepage here: " textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-nh-EhE">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="752" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPY-nh-EhE">
                                         <rect key="frame" x="31.5" y="45" width="311" height="40"/>
                                         <color key="textColor" red="0.23968734620000001" green="0.36196962259999999" blue="0.26313970250000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="link here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9ZF-x7-dbq">
+                                        <rect key="frame" x="67" y="90" width="240" height="40"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSa-RM-Oft">
-                                        <rect key="frame" x="140.5" y="90" width="93" height="40"/>
+                                        <rect key="frame" x="140.5" y="135" width="93" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="e4i-jI-FJA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Get Started">
-                                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.07167312671224764" green="0.25894273477157359" blue="0.1024318676740595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <segue destination="lG6-5P-keG" kind="presentation" modalPresentationStyle="fullScreen" id="5Yh-XR-TIP"/>
@@ -77,6 +84,7 @@
                     <connections>
                         <outlet property="aboutUsTextView" destination="mPY-nh-EhE" id="9gf-d2-VIA"/>
                         <outlet property="getStartedButton" destination="zSa-RM-Oft" id="xh8-Od-0Vs"/>
+                        <outlet property="linkTextView" destination="9ZF-x7-dbq" id="9AO-6s-vUZ"/>
                         <outlet property="plantImageView" destination="3Hk-fQ-M4X" id="LKN-gv-bLr"/>
                         <outlet property="plantParentLabel" destination="IQ0-3u-RWI" id="p2k-3x-Il6"/>
                     </connections>

@@ -16,6 +16,7 @@ class AboutUsViewController: UIViewController {
     @IBOutlet weak var plantParentLabel: UILabel!
     @IBOutlet weak var aboutUsTextView: UITextView!
     @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet weak var linkTextView: UITextView!
     
 
     override func viewDidLoad() {
@@ -27,9 +28,11 @@ class AboutUsViewController: UIViewController {
     func updateViews() {
         plantImageView.image = UIImage(named: "purplePlants")
         aboutUsTextView.textAlignment = .center
-        aboutUsTextView.text = "Visit our Home Page for more information: \n https://watermyownplants.netlify.app/index.html "
-        aboutUsTextView.textColor = .black
+        aboutUsTextView.text = "Visit our Home Page for more information:"
         aboutUsTextView.isScrollEnabled = false
+        linkTextView.isScrollEnabled = false
+        linkTextView.textAlignment = .center
+        linkTextView.text = "https://watermyownplants.netlify.app/index.html"
     }
 
 }

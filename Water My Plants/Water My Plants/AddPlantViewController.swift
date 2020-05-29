@@ -23,13 +23,13 @@ class AddPlantViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
     }
     
     // MARK: - ACTIONS
     @IBAction func savePlantButton(_ sender: UIBarButtonItem) {
-//        guard let plantImage = plantImageView.image,
-            guard let nickname = plantNameText.text,
+        //        guard let plantImage = plantImageView.image,
+        guard let nickname = plantNameText.text,
             let species = plantSpeciesText.text,
             let h2o_frequency = plantFrequency.text else { return }
         
@@ -40,11 +40,12 @@ class AddPlantViewController: UIViewController {
         } else {
             controller?.createPlant(nickname: nickname, species: species, h2o_frequency: h2o_frequency)
         }
-//        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Saved", message: "Your plant baby has been added!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Finished", style: .default) { (UIAlertAction) -> Void in
+            self.navigationController?.popViewController(animated: true)
+        })
+        present(alert, animated: true, completion: nil)
     }
-    
-    
     
 } //EOC
 

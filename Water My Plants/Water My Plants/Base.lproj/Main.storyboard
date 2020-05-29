@@ -17,7 +17,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hk-fQ-M4X">
                                 <rect key="frame" x="0.0" y="88" width="414" height="538"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Qv-u9D">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -34,7 +33,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="About Us:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lvd-Vn-CFu">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="You can visit our homepage here:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lvd-Vn-CFu">
                                         <rect key="frame" x="31.5" y="49.5" width="311" height="131.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -272,11 +271,11 @@
             <objects>
                 <viewController id="yee-zL-Zlu" customClass="LoginRegisterViewController" customModule="Water_My_Plants" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LWS-Ok-yi9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-u8-B3z">
-                                <rect key="frame" x="20" y="100" width="374" height="308"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-u8-B3z">
+                                <rect key="frame" x="20" y="144" width="374" height="518"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ave-6c-XMc">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
@@ -289,23 +288,23 @@
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Skh-Fr-8Mv">
-                                        <rect key="frame" x="0.0" y="66" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="119.5" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bV-Bn-i0t">
-                                        <rect key="frame" x="0.0" y="134.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="241" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6y-Dn-Fd6">
-                                        <rect key="frame" x="0.0" y="203.5" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="362" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-nt-eF0">
-                                        <rect key="frame" x="0.0" y="272" width="374" height="36"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="482" width="374" height="36"/>
+                                        <color key="backgroundColor" red="0.23968734619653112" green="0.36196962256116916" blue="0.26313970246570212" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -319,7 +318,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1tu-4f-OTp" firstAttribute="bottom" secondItem="fsu-u8-B3z" secondAttribute="bottom" constant="400" id="DAA-3N-E3E"/>
+                            <constraint firstItem="1tu-4f-OTp" firstAttribute="bottom" secondItem="fsu-u8-B3z" secondAttribute="bottom" constant="200" id="DAA-3N-E3E"/>
                             <constraint firstItem="fsu-u8-B3z" firstAttribute="leading" secondItem="1tu-4f-OTp" secondAttribute="leading" constant="20" id="NAG-bw-vVO"/>
                             <constraint firstItem="fsu-u8-B3z" firstAttribute="top" secondItem="1tu-4f-OTp" secondAttribute="top" constant="100" id="WBd-jZ-Kz0"/>
                             <constraint firstItem="1tu-4f-OTp" firstAttribute="trailing" secondItem="fsu-u8-B3z" secondAttribute="trailing" constant="20" id="saM-IJ-g9P"/>
@@ -433,7 +432,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="yee-zL-Zlu" kind="showDetail" identifier="LoginModalSegue" id="LC2-Ic-kWJ"/>
+                        <segue destination="yee-zL-Zlu" kind="presentation" identifier="LoginModalSegue" modalPresentationStyle="fullScreen" id="LC2-Ic-kWJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvT-RS-HjY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

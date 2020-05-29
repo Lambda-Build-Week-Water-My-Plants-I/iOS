@@ -14,6 +14,13 @@ protocol UserStateDelegate {
 
 final class UserController {
     
+    #warning("Is this capable of being optional until loaded?")
+    var dataLoader: NetworkDataLoader?
+    
+    init(dataLoader: NetworkDataLoader = URLSession.shared) {
+        self.dataLoader = dataLoader
+    }
+    
     struct APIUser: Codable {
         var id: Int
         var username: String

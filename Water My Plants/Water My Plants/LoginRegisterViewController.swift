@@ -31,12 +31,19 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
         
         signInButton.layer.cornerRadius = 8.0
         passwordTextField.isSecureTextEntry = true
-        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        phoneNumberTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+           return true
+       }
     
     // MARK: - Action Handlers
     
@@ -112,6 +119,4 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-
-
 

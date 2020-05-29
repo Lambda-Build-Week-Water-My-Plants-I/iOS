@@ -31,7 +31,12 @@ final class UserController {
     // MARK: - Properties
     
     static let shared = UserController()
-    var loggedInUser: APIUser?
+    var loggedInUser: APIUser? {
+        didSet {
+            guard let currentID = currentUserID else { return }
+            fetchUserFromServer(with: currentID)
+        }
+    }
     var bearer: Bearer?
     var currentUserID: UserID?
     

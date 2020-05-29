@@ -29,14 +29,6 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        plantController.fetchPlantsFromServer()
-//            { result in
-//            if let _ = try? result.get() {
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
     }
     
     // MARK: - DAHNA'S CODE
@@ -55,24 +47,23 @@ class TableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return fetchedResultsController.sections?.count ?? 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PlantCell", for: indexPath) as? PlantCell else { fatalError("Unable to connect") }
         cell.plant = fetchedResultsController.object(at: indexPath)
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//          guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil }
-//          return sectionInfo.name.capitalized
-//      }
-
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil }
+        return sectionInfo.name.capitalized
+    }
+    
     // MARK: - DELETE PLANT FROM TB FUNC
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -95,36 +86,29 @@ class TableViewController: UITableViewController {
             }
         }
     }
-    
-
-
     // TODO
     // MARK: - NAVIGATION
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddPlantSegue" {
             if let addPlantVC = segue.destination as? AddPlantViewController {
                 addPlantVC.controller = self.plantController
             }
         }
-//
-//        }
-//        // DetailViewController
-//        if segue.identifier == "PlantDetailSegue" {
-//            if let detailVC = segue.destination as? DetailViewViewController {
-//                detailVC.controller = self.plantController
-//            }
-//        }'
-//        //EditProfile
-//        if segue.identifier == "EditProfileSegue" {
-//
-//        }
-//    }
+        // DetailViewController
+        if segue.identifier == "PlantDetailSegue" {
+            if let detailVC = segue.destination as? DetailViewViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.plant = fetchedResultsController.object(at: indexPath)
+                detailVC.plantController = plantController
+            }
+        }
+        // EditProfile
+        if segue.identifier == "EditProfileSegue" {
+            
+        }
     }
-    
 } // EOC
-
 
 extension TableViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

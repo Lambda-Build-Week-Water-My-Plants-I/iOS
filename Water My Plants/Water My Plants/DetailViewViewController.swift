@@ -27,7 +27,6 @@ class DetailViewViewController: UIViewController {
         navigationItem.rightBarButtonItem = editButtonItem
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -40,11 +39,14 @@ class DetailViewViewController: UIViewController {
                 !plantFreq.isEmpty,
                 let plant = plant else { return }
             
+            let nickname = plantNameText.text
+            plant.nickname = nickname
             let species = plantSpeciesText.text
             plant.species = species
             let h2o_frequency = plantFrequency.text
             plant.h2o_frequency = h2o_frequency
-            
+        
+//            plantController?.sendPlantToServer(plant: plant.plantRepresentation!)
             do {
                 try CoreDataStack.shared.save()
             } catch {

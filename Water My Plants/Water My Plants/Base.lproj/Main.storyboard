@@ -20,6 +20,8 @@
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Qv-u9D">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="About Us" id="apR-bc-KVm"/>
                                 </items>
@@ -42,7 +44,7 @@
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSa-RM-Oft">
                                         <rect key="frame" x="140.5" y="197" width="93" height="33"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Get Started">
                                             <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,7 +59,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LuL-Qv-u9D" firstAttribute="leading" secondItem="3Hk-fQ-M4X" secondAttribute="leading" id="1yN-5D-hAB"/>
                             <constraint firstItem="LuL-Qv-u9D" firstAttribute="top" secondItem="cQr-aw-h4q" secondAttribute="top" id="Fnv-Hl-UTI"/>
@@ -129,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="be5-La-ie5" firstAttribute="trailing" secondItem="e3g-1W-KM9" secondAttribute="trailing" constant="87" id="0jO-gW-K7l"/>
                             <constraint firstItem="e3g-1W-KM9" firstAttribute="leading" secondItem="be5-La-ie5" secondAttribute="leading" constant="87" id="7bz-cu-eng"/>
@@ -188,7 +190,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FZz-GR-oG7" firstAttribute="trailing" secondItem="3iF-7J-xYp" secondAttribute="trailing" constant="20" id="UMA-Do-I2I"/>
                             <constraint firstItem="3iF-7J-xYp" firstAttribute="leading" secondItem="FZz-GR-oG7" secondAttribute="leading" constant="20" id="YrO-n3-6XG"/>
@@ -247,7 +249,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hFV-8f-LCe" firstAttribute="leading" secondItem="3I3-uf-Ukb" secondAttribute="leading" constant="20" id="Cmh-VX-5fM"/>
                             <constraint firstItem="Fcu-lL-OYD" firstAttribute="top" secondItem="3I3-uf-Ukb" secondAttribute="top" constant="20" id="OIN-FC-klL"/>
@@ -322,7 +324,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1tu-4f-OTp" firstAttribute="bottom" secondItem="fsu-u8-B3z" secondAttribute="bottom" constant="200" id="DAA-3N-E3E"/>
                             <constraint firstItem="fsu-u8-B3z" firstAttribute="leading" secondItem="1tu-4f-OTp" secondAttribute="leading" constant="20" id="NAG-bw-vVO"/>
@@ -351,7 +353,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KJ5-yU-K46">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlantCell" rowHeight="128" id="YTA-Bo-eBB" customClass="PlantCell" customModule="Water_My_Plants" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="128"/>
@@ -411,6 +413,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="ESg-cH-ZJm" secondAttribute="trailing" id="hfn-3n-2T6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.67676694605178533" green="0.793932423857868" blue="0.72833714181045239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="plantName" destination="JpL-v1-2AB" id="oE5-Qf-w6d"/>
                                     <outlet property="plantPicture" destination="IHZ-lh-VqO" id="jVG-do-8h8"/>

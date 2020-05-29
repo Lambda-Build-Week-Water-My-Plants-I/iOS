@@ -26,12 +26,13 @@ class TableViewController: UITableViewController {
     }()
     
     let plantController = PlantController()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
-    
+
+       override func viewDidLoad() {
+           super.viewDidLoad()
+   
+       }
+   
     // MARK: - DAHNA'S CODE
     
     override func viewDidAppear(_ animated: Bool) {

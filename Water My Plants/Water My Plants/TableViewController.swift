@@ -29,6 +29,7 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     // MARK: - DAHNA'S CODE
@@ -37,8 +38,7 @@ class TableViewController: UITableViewController {
         super.viewDidAppear(animated)
         if UserController.shared.bearer == nil {
             performSegue(withIdentifier: "LoginModalSegue", sender: self)
-        } else {
-            plantController.fetchPlantsFromServer()
+     
         }
     }
     // MARK: - Table view data source

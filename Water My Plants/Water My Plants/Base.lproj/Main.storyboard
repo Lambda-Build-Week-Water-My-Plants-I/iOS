@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gfP-Uc-8mj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -261,6 +261,12 @@
                     <navigationItem key="navigationItem" title="Plant Nickname" id="jiR-xg-I7v">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="q8i-Bv-Q2z"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="plantFrequency" destination="ego-hE-dIZ" id="UnT-JC-zWc"/>
+                        <outlet property="plantImageView" destination="Fcu-lL-OYD" id="KiU-Jm-cD9"/>
+                        <outlet property="plantNameText" destination="Kgm-gz-Ofa" id="p6c-od-HUn"/>
+                        <outlet property="plantSpeciesText" destination="cTP-sc-3bn" id="mGe-Zf-vV2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zp0-Cm-q2K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -410,7 +416,7 @@
                                     <outlet property="plantPicture" destination="IHZ-lh-VqO" id="jVG-do-8h8"/>
                                     <outlet property="plantSpecies" destination="bL8-Gb-yGH" id="en1-pV-0m1"/>
                                     <outlet property="waterButton" destination="ESg-cH-ZJm" id="TcM-Ch-qKS"/>
-                                    <segue destination="Kwe-qk-iSG" kind="show" id="H2P-bd-dow"/>
+                                    <segue destination="Kwe-qk-iSG" kind="show" identifier="PlantDetailSegue" id="H2P-bd-dow"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

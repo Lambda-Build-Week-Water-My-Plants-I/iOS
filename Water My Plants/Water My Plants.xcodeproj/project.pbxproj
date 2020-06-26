@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AAD249037E8F5DACDB851FA /* Pods_Water_My_Plants_Water_My_PlantsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79C6076D74326F9699CA310 /* Pods_Water_My_Plants_Water_My_PlantsUITests.framework */; };
 		7F45AB92247D6974000B6D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB91247D6974000B6D95 /* AppDelegate.swift */; };
 		7F45AB94247D6974000B6D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45AB93247D6974000B6D95 /* SceneDelegate.swift */; };
 		7F45AB99247D6974000B6D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F45AB97247D6974000B6D95 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		7F5E5AEE2481768A00E47BA4 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */; };
 		7F5E5AF5248178D900E47BA4 /* MockDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AEF2481771E00E47BA4 /* MockDataLoader.swift */; };
 		7F5E5AF7248179B100E47BA4 /* testJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E5AF6248179B100E47BA4 /* testJSON.swift */; };
+		98E4C7FBD88370563E28BE0D /* Pods_Water_My_PlantsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AFBBD672669F65684F5687 /* Pods_Water_My_PlantsTests.framework */; };
 		995B9FB0247ECD34009807A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FAF247ECD34009807A8 /* User.swift */; };
 		995B9FC1247EDBD5009807A8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC0247EDBD5009807A8 /* UserController.swift */; };
 		995B9FC3247EDC21009807A8 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995B9FC2247EDC21009807A8 /* Bearer.swift */; };
@@ -34,6 +36,7 @@
 		B4F284A7247EC37F00E3B3A5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F284A6247EC37F00E3B3A5 /* CoreDataStack.swift */; };
 		B4F284A9247EC39C00E3B3A5 /* Plant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F284A8247EC39C00E3B3A5 /* Plant+Convenience.swift */; };
 		B4F284AB247EC3B100E3B3A5 /* PlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F284AA247EC3B100E3B3A5 /* PlantCell.swift */; };
+		E956D31261E95A49C61A0CCF /* Pods_Water_My_Plants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60D2561DE471CEFA09984D6C /* Pods_Water_My_Plants.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FF33C1075F514373DFB834C /* Pods-Water My Plants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.release.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.release.xcconfig"; sourceTree = "<group>"; };
+		60D2561DE471CEFA09984D6C /* Pods_Water_My_Plants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_Plants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F45AB8E247D6974000B6D95 /* Water My Plants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Water My Plants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F45AB91247D6974000B6D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F45AB93247D6974000B6D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +81,8 @@
 		7F5E5AED2481768A00E47BA4 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
 		7F5E5AEF2481771E00E47BA4 /* MockDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataLoader.swift; sourceTree = "<group>"; };
 		7F5E5AF6248179B100E47BA4 /* testJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testJSON.swift; sourceTree = "<group>"; };
+		85AFBBD672669F65684F5687 /* Pods_Water_My_PlantsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_PlantsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		925AFBF3A61F879C24503516 /* Pods-Water My PlantsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My PlantsTests.debug.xcconfig"; path = "Target Support Files/Pods-Water My PlantsTests/Pods-Water My PlantsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		995B9FAF247ECD34009807A8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		995B9FC0247EDBD5009807A8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		995B9FC2247EDC21009807A8 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
@@ -87,6 +94,11 @@
 		B4F284A6247EC37F00E3B3A5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = SOURCE_ROOT; };
 		B4F284A8247EC39C00E3B3A5 /* Plant+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plant+Convenience.swift"; sourceTree = SOURCE_ROOT; };
 		B4F284AA247EC3B100E3B3A5 /* PlantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCell.swift; sourceTree = SOURCE_ROOT; };
+		B6E4C396A4D9AD3DF481DB09 /* Pods-Water My Plants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants/Pods-Water My Plants.debug.xcconfig"; sourceTree = "<group>"; };
+		C3E8762CC7D6EE1A48234A5D /* Pods-Water My PlantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My PlantsTests.release.xcconfig"; path = "Target Support Files/Pods-Water My PlantsTests/Pods-Water My PlantsTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC4DDA83BAA9CAF1EE691FAC /* Pods-Water My Plants-Water My PlantsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants-Water My PlantsUITests.release.xcconfig"; path = "Target Support Files/Pods-Water My Plants-Water My PlantsUITests/Pods-Water My Plants-Water My PlantsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E79C6076D74326F9699CA310 /* Pods_Water_My_Plants_Water_My_PlantsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Water_My_Plants_Water_My_PlantsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF1A45B647929D88851A71B5 /* Pods-Water My Plants-Water My PlantsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Water My Plants-Water My PlantsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Water My Plants-Water My PlantsUITests/Pods-Water My Plants-Water My PlantsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E956D31261E95A49C61A0CCF /* Pods_Water_My_Plants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E4C7FBD88370563E28BE0D /* Pods_Water_My_PlantsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AAD249037E8F5DACDB851FA /* Pods_Water_My_Plants_Water_My_PlantsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +137,8 @@
 				7F45ABAA247D6976000B6D95 /* Water My PlantsTests */,
 				7F45ABB5247D6976000B6D95 /* Water My PlantsUITests */,
 				7F45AB8F247D6974000B6D95 /* Products */,
+				D8E27C1824EA3FD0C675F4EB /* Pods */,
+				F9CDA663D7F41BCD5A0B81AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +235,29 @@
 			path = "Water My Plants";
 			sourceTree = "<group>";
 		};
+		D8E27C1824EA3FD0C675F4EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6E4C396A4D9AD3DF481DB09 /* Pods-Water My Plants.debug.xcconfig */,
+				2FF33C1075F514373DFB834C /* Pods-Water My Plants.release.xcconfig */,
+				EF1A45B647929D88851A71B5 /* Pods-Water My Plants-Water My PlantsUITests.debug.xcconfig */,
+				CC4DDA83BAA9CAF1EE691FAC /* Pods-Water My Plants-Water My PlantsUITests.release.xcconfig */,
+				925AFBF3A61F879C24503516 /* Pods-Water My PlantsTests.debug.xcconfig */,
+				C3E8762CC7D6EE1A48234A5D /* Pods-Water My PlantsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F9CDA663D7F41BCD5A0B81AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60D2561DE471CEFA09984D6C /* Pods_Water_My_Plants.framework */,
+				E79C6076D74326F9699CA310 /* Pods_Water_My_Plants_Water_My_PlantsUITests.framework */,
+				85AFBBD672669F65684F5687 /* Pods_Water_My_PlantsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,9 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F45ABBB247D6976000B6D95 /* Build configuration list for PBXNativeTarget "Water My Plants" */;
 			buildPhases = (
+				51180257CCB3A1A33CFACD78 /* [CP] Check Pods Manifest.lock */,
 				7F45AB8A247D6974000B6D95 /* Sources */,
 				7F45AB8B247D6974000B6D95 /* Frameworks */,
 				7F45AB8C247D6974000B6D95 /* Resources */,
+				7FD7BB6E24818D810035E4ED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -242,6 +284,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F45ABBE247D6976000B6D95 /* Build configuration list for PBXNativeTarget "Water My PlantsTests" */;
 			buildPhases = (
+				7DB1D5E7DE931EAB351BC50E /* [CP] Check Pods Manifest.lock */,
 				7F45ABA3247D6976000B6D95 /* Sources */,
 				7F45ABA4247D6976000B6D95 /* Frameworks */,
 				7F45ABA5247D6976000B6D95 /* Resources */,
@@ -260,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F45ABC1247D6976000B6D95 /* Build configuration list for PBXNativeTarget "Water My PlantsUITests" */;
 			buildPhases = (
+				58720DFF80A43214AB1B5C90 /* [CP] Check Pods Manifest.lock */,
 				7F45ABAE247D6976000B6D95 /* Sources */,
 				7F45ABAF247D6976000B6D95 /* Frameworks */,
 				7F45ABB0247D6976000B6D95 /* Resources */,
@@ -343,6 +387,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51180257CCB3A1A33CFACD78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Water My Plants-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58720DFF80A43214AB1B5C90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Water My Plants-Water My PlantsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DB1D5E7DE931EAB351BC50E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Water My PlantsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FD7BB6E24818D810035E4ED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7F45AB8A247D6974000B6D95 /* Sources */ = {
@@ -541,10 +671,11 @@
 		};
 		7F45ABBC247D6976000B6D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6E4C396A4D9AD3DF481DB09 /* Pods-Water My Plants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HL3XLM68NV;
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -560,10 +691,11 @@
 		};
 		7F45ABBD247D6976000B6D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FF33C1075F514373DFB834C /* Pods-Water My Plants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HL3XLM68NV;
 				INFOPLIST_FILE = "Water My Plants/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -579,6 +711,7 @@
 		};
 		7F45ABBF247D6976000B6D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 925AFBF3A61F879C24503516 /* Pods-Water My PlantsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -601,6 +734,7 @@
 		};
 		7F45ABC0247D6976000B6D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E8762CC7D6EE1A48234A5D /* Pods-Water My PlantsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -623,6 +757,7 @@
 		};
 		7F45ABC2247D6976000B6D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF1A45B647929D88851A71B5 /* Pods-Water My Plants-Water My PlantsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -643,6 +778,7 @@
 		};
 		7F45ABC3247D6976000B6D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC4DDA83BAA9CAF1EE691FAC /* Pods-Water My Plants-Water My PlantsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

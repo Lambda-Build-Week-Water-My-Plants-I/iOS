@@ -147,9 +147,9 @@ final class UserController {
             completion(.failure(.failedSignIn))
         }
     }
-    
+
     func fetchUserFromServer(with userID: UserID, completion: @escaping (Result<APIUser, NetworkError>) -> Void = { _ in }) {
-        
+    
         let requestURL = fetchUserURL.appendingPathComponent("\(userID.id)")
         print("\(userID)")
         print("fetchUserURL: \(requestURL)")
@@ -158,9 +158,9 @@ final class UserController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         guard let token = self.bearer?.token else { return }
         request.setValue(token, forHTTPHeaderField: "Authorization")
-        
-        
-        
+    
+    
+    
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 NSLog("Error fetching user: \(error)⚠️⚠️⚠️")
@@ -218,7 +218,6 @@ final class UserController {
                     completion(.failure(.otherError))
                     return
                 }
-                #warning("Save local state of loggedInUser")
                 self.loggedInUser?.username = editDictionary["username"] ?? ""
                 self.loggedInUser?.phone_number = editDictionary["phone_number"] ?? ""
                 completion(.success(true))

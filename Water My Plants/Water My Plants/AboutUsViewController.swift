@@ -9,9 +9,9 @@
 import UIKit
 
 class AboutUsViewController: UIViewController {
-    
+
     // MARK: - Outlets
-    
+
     @IBOutlet weak var plantImageView: UIImageView!
     @IBOutlet weak var plantParentLabel: UILabel!
     @IBOutlet weak var aboutUsTextView: UITextView!
@@ -24,7 +24,7 @@ class AboutUsViewController: UIViewController {
         updateViews()
         
     }
-    
+
     func updateViews() {
         plantImageView.image = UIImage(named: "purplePlants")
         aboutUsTextView.textAlignment = .center

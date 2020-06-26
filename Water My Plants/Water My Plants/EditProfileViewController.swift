@@ -13,10 +13,10 @@ class EditProfileViewController: UIViewController {
     
     let user = UserController.shared.loggedInUser
     var wasEdited = false
-    
+
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class EditProfileViewController: UIViewController {
     }
     
     private func updateViews() {
-        
+    
         userNameTextField.text = UserController.shared.loggedInUser?.username
         userNameTextField.isUserInteractionEnabled = isEditing
         

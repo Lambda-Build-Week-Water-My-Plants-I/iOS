@@ -36,23 +36,20 @@ class PlantController {
     
     var plantRepresentation: [PlantRepresentation] = []
     let decoder = JSONDecoder()
-    
-    
+ 
     //    var userPlants: [] = []
     
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
     
     // MARK: FETCH PLANTS "GET"
     //MARK: - TODO - come back to the api/user once i have user info
-    
-    
+
     func fetchPlantsFromServer(completion: @escaping CompletionHandler = { _ in }) {
         guard let userID = UserController.shared.currentUserID?.id else { return }
         let requestURL = baseURL.appendingPathComponent("api/users/\(userID)/plants")
         var request = URLRequest(url: requestURL)
         guard let token = UserController.shared.bearer?.token else { return }
         request.setValue(token, forHTTPHeaderField: "Authorization")
-        
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
@@ -176,12 +173,9 @@ class PlantController {
     
     func updatePlantOnServer(plant: Plant, completion: @escaping (_ plantID: Int?) -> Void
         = {_ in }) {
-
-        
         let apiPlant = ApiPlant(nickname: plant.nickname ?? "" , species: plant.species, h2o_frequency: plant.h2o_frequency ?? "")
         
         guard let plantID = plant.id else { return }
-        
         let requestURL = baseURL.appendingPathComponent("api/plants").appendingPathComponent("\(plantID)")
         print("\(requestURL)")
         var request = URLRequest(url: requestURL)
@@ -189,7 +183,6 @@ class PlantController {
         guard let token = UserController.shared.bearer?.token else { return }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token, forHTTPHeaderField: "Authorization")
-        
         do {
             let body = try JSONEncoder().encode(apiPlant)
             print ("Request body: \(body)")
@@ -243,7 +236,4 @@ class PlantController {
             completion(.success(true))
         }.resume()
     }
-    
-    
-    
 } // EOC

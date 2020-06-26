@@ -34,7 +34,6 @@ class TableViewController: UITableViewController {
     }
    
     // MARK: - DAHNA'S CODE
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if UserController.shared.bearer == nil {

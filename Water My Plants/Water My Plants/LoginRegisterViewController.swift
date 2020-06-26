@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 enum LoginType {
     case signUp
     case signIn
@@ -26,14 +28,14 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         signInButton.layer.cornerRadius = 8.0
+        passwordTextField.isSecureTextEntry = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        usernameTextField.becomeFirstResponder()
     }
     
     // MARK: - Action Handlers
@@ -49,9 +51,7 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
             if loginType == .signUp {
                 guard let phoneNumber = phoneNumberTextField.text,
                     !phoneNumber.isEmpty else { return }
-                let user = User(username: username, password: password, phone_number: phoneNumber)
-                
-                UserController.shared.signUp(with: user, completion: { result in
+                UserController.shared.signUp(with: username, password: password, phoneNumber: phoneNumber, completion: { result in
                     
                     do {
                         let success = try result.get()

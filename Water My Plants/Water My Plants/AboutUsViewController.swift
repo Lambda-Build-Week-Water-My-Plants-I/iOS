@@ -9,12 +9,30 @@
 import UIKit
 
 class AboutUsViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var plantImageView: UIImageView!
+    @IBOutlet weak var plantParentLabel: UILabel!
+    @IBOutlet weak var aboutUsTextView: UITextView!
+    @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet weak var linkTextView: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
+        
     }
     
+    func updateViews() {
+        plantImageView.image = UIImage(named: "purplePlants")
+        aboutUsTextView.textAlignment = .center
+        aboutUsTextView.text = "Visit our Home Page for more information:"
+        aboutUsTextView.isScrollEnabled = false
+        linkTextView.isScrollEnabled = false
+        linkTextView.textAlignment = .center
+        linkTextView.text = "https://watermyownplants.netlify.app/index.html"
+    }
 
 }

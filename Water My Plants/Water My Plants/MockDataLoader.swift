@@ -16,13 +16,13 @@ class MockDataLoader: NetworkDataLoader {
     let error: Error?
     
     private(set) var request: URLRequest?
-    
+
     internal init(data: Data?, response: URLResponse?, error: Error?) {
         self.data = data
         self.response = response
         self.error = error
     }
-    
+
     func loadData(using request: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         self.request = request
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.005) {

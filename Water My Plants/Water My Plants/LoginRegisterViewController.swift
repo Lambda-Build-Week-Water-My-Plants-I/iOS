@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 enum LoginType {
     case signUp
     case signIn
@@ -17,13 +16,12 @@ enum LoginType {
 
 class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
     
-    
     @IBOutlet private weak var usernameTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var phoneNumberTextField: UITextField!
     @IBOutlet private weak var loginTypeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var signInButton: UIButton!
-
+    
     var loginType = LoginType.signUp
     
     override func viewDidLoad() {
@@ -31,17 +29,22 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
         
         signInButton.layer.cornerRadius = 8.0
         passwordTextField.isSecureTextEntry = true
-        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        phoneNumberTextField.delegate = self
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     // MARK: - Action Handlers
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-
+        
         if let username = usernameTextField.text,
             !username.isEmpty,
             let password = passwordTextField.text,
@@ -52,7 +55,6 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
                 guard let phoneNumber = phoneNumberTextField.text,
                     !phoneNumber.isEmpty else { return }
                 UserController.shared.signUp(with: username, password: password, phoneNumber: phoneNumber, completion: { result in
-                    
                     do {
                         let success = try result.get()
                         if success {
@@ -82,7 +84,6 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
                             }
                         }
                     } catch  {
-                     
                         if let error = error as? UserController.NetworkError {
                             switch error {
                             case .failedSignIn:
@@ -112,6 +113,3 @@ class LoginRegisterViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-
-
-
